@@ -10,7 +10,7 @@ public class InputManager : Singleton<InputManager>
     
     public PlayerInput Data => data;
 
-    public bool CanGetAction {  get; set; }
+    public bool canGetAction {  get; set; }
     public bool isJumping { get; private set; }
     public float move { get; private set; }
     public bool anyKeyDown { get; private set; }
@@ -32,7 +32,7 @@ public class InputManager : Singleton<InputManager>
     {
         anyKeyDown = Input.anyKeyDown;
 
-        if(!CanGetAction)
+        if(!canGetAction)
         {
             return;
         }
