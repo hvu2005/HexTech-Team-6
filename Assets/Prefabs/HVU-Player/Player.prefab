@@ -165,7 +165,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rb: {fileID: 3785122087294361917}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 1
+  groundOffset: {x: 0, y: -0.05}
+  distance: 0.1
   moveSpeed: 5
+  jumpForce: 5
 --- !u!114 &5752395313245567477
 MonoBehaviour:
   m_ObjectHideFlags: 0
