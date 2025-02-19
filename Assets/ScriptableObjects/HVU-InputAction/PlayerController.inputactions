@@ -39,7 +39,7 @@
                 {
                     "name": "negative",
                     "id": "bb92624b-79a1-48b2-9474-ceaebc185f0a",
-                    "path": "<Keyboard>/#(A)",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -50,7 +50,7 @@
                 {
                     "name": "positive",
                     "id": "caee9253-8ef3-46eb-8361-33ce04987305",
-                    "path": "<Keyboard>/#(B)",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
