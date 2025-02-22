@@ -10,7 +10,11 @@ public class Player : NetworkBehaviour
 {
     public Rigidbody2D Rb;
 
+    public bool CanMove { get; set; } = true;
+    public bool isFacingRight { get; private set; } = true;
+
     //~~~~~~~~~~~~~Grounding~~~~~~~~~~~~~~
+    public bool isGrounded {  get; private set; }
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private Vector2 groundOffset;
     [SerializeField] private float distance;
@@ -39,19 +43,39 @@ public class Player : NetworkBehaviour
     {
         if (!IsServer) return;
 
+
+        Flip();
+        checkIsGrounded();
+
         Rb.velocity = new Vector2(_controller.move * moveSpeed, Rb.velocity.y);
 
-        if(checkIsGrounded() && _controller.isJumping)
+        if(isGrounded && _controller.isJumping)
         {
             Rb.velocity = new Vector2(Rb.velocity.x, jumpForce);
         }
     }
 
-    private bool checkIsGrounded()
+    private void checkIsGrounded()
     {
         RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + groundOffset, Vector2.left, distance, whatIsGround );
         Debug.DrawRay((Vector2)transform.position + groundOffset, Vector2.left * distance, Color.red);
-        return hit.collider != null;
+        isGrounded = hit.collider != null;
     }
     
+    private void Flip()
+    {
+        if(CanMove)
+        {
+            if(_controller.move > 0 && !isFacingRight)
+            {
+                isFacingRight = !isFacingRight;
+                transform.rotation = Quaternion.identity;
+            }
+            else if(_controller.move < 0 && isFacingRight)
+            {
+                isFacingRight = !isFacingRight;
+                transform.rotation = Quaternion.Euler(0, -180, 0);
+            }
+        }
+    }
 }
