@@ -2,23 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.Netcode;
 
-public class InputManager : Singleton<InputManager>
+public class PlayerController : NetworkBehaviour
 {
 
     [SerializeField] private PlayerInput data;
-    
-    public PlayerInput Data => data;
 
-    public bool canGetAction {  get; set; }
+    public bool canGetAction { get; set; } = true;
     public bool isJumping { get; private set; }
     public float move { get; private set; }
     public bool anyKeyDown { get; private set; }
 
 
-    protected override void Awake()
+    public override void OnNetworkSpawn()
     {
-        base.Awake();
+        if(!IsOwner)
+        {
+            enabled = false;
+        }
     }
 
     // Start is called before the first frame update
@@ -30,6 +32,8 @@ public class InputManager : Singleton<InputManager>
     // Update is called once per frame
     void Update()
     {
+        if (!IsOwner) return;
+
         anyKeyDown = Input.anyKeyDown;
 
         if(!canGetAction)
@@ -37,7 +41,7 @@ public class InputManager : Singleton<InputManager>
             return;
         }
 
-        isJumping = data.actions["Jumping"].WasPressedThisFrame();
+        isJumping = data.actions["Jump"].WasPressedThisFrame();
         move = data.actions["Move"].ReadValue<float>();
     }
 }
