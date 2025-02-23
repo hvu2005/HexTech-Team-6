@@ -1,23 +1,25 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.Networking.Transport;
 using UnityEngine;
 
 public class Network : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private void OnGUI()
+    void Start()
     {
-        if (GUILayout.Button("Start host")){
-            NetworkManager.Singleton.StartHost();
-        }
-        if(GUILayout.Button("Start client"))
-        {
-            NetworkManager.Singleton.StartClient();
-        }
-        if(GUILayout.Button("Start server"))
-        {
-            NetworkManager.Singleton.StartServer();
-        }
+        // Gọi phương thức để khởi động server hoặc client
+    }
+
+    public void StartHost()
+    {
+        NetworkManager.Singleton.StartHost();
+        Debug.Log("Host started.");
+    }
+
+    public void StartClient()
+    {
+        NetworkManager.Singleton.StartClient();
+        Debug.Log("Client started.");
     }
 }
