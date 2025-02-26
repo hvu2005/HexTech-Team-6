@@ -9,6 +9,10 @@ public class Bullet : MonoBehaviour
     public float speed;
     public Vector2 dir;
 
+    public void setDir(Vector2 dir)
+    {
+        this.dir = dir;
+    }
     // Start is called before the first frame update
     void Start()
     {

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e35379767e7a44a4f9daa0330af7c82e
+guid: bd64c516d5f149c46a41ae09014e28ee
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638759164485766703
+  platformSettingsDirtyTick: 638757860431829603
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -133,7 +133,7 @@ ScriptedImporter:
       y: 4
       width: 6
       height: 6
-    spriteID: e66e53c9294f8a548ab0be57413fb150
+    spriteID: 1412eb6dcfde61146bafa02c02aba5b6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -151,7 +151,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Bullet_player
+    - name: Bullet_bot
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -159,7 +159,7 @@ ScriptedImporter:
         y: 1
         width: 6
         height: 6
-      spriteId: e66e53c9294f8a548ab0be57413fb150
+      spriteId: 1412eb6dcfde61146bafa02c02aba5b6
     linkedCells: []
     parentIndex: -1
   platformSettings:

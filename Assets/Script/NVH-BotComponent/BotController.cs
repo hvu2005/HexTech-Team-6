@@ -8,8 +8,6 @@ public class BotController : MonoBehaviour
     public float moveSpeed = 3f;
     public float changeDirectionTime = 1f;
     public BoxCollider2D gridArea;
-    //public Vector2 moveAreaMin = new Vector2(3, -7);
-    //public Vector2 moveAreaMax = new Vector2(6, -3);
 
     private Vector2 targetPosition;
     private Rigidbody2D rb;
@@ -18,7 +16,6 @@ public class BotController : MonoBehaviour
     public GameObject rocketPrefab;
     public Transform firePos1;
     public Transform firePos2;
-    public Transform firePos3;
     public Transform lauchPos;
 
     public Slider slider;
@@ -35,7 +32,6 @@ public class BotController : MonoBehaviour
     void Update()
     {
         Move();
-        CheckHealth();
     }
 
     void Move()
@@ -53,7 +49,7 @@ public class BotController : MonoBehaviour
             //hieu ung no chi choe dung doang
         }
     }
-
+    
     IEnumerator ChangeDirection()
     {
         while (true)
@@ -61,8 +57,6 @@ public class BotController : MonoBehaviour
             yield return new WaitForSeconds(changeDirectionTime);
             //float x = Random.Range(gridArea.bounds.min.x, gridArea.bounds.max.x);
             float y = Random.Range(gridArea.bounds.min.y, gridArea.bounds.max.y);
-            //float x = Random.Range(moveAreaMin.x, moveAreaMax.x);
-            //float y = Random.Range(moveAreaMin.y, moveAreaMax.y);
             targetPosition = new Vector2(this.transform.position.x, y);
         }
     }
@@ -70,11 +64,15 @@ public class BotController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(2f);
-            for (int i = 0; i < 5; i++)
+            yield return new WaitForSeconds(1f);
+            for (int i = 0; i < 3; i++)
             {
+                Vector2 newDir = new Vector2(0,0);
+                if (i == 0) { newDir = new Vector2(-1f, 0.5f); }
+                else if (i == 1) { newDir = new Vector2(-1, 0); }
+                else if (i == 2) {newDir = new Vector2(-1f, -0.5f); }
+                bulletPrefab.GetComponent<Bullet>().setDir(newDir);
                 Shoot();
-                yield return new WaitForSeconds(1f);
             }
         }
     }
@@ -92,9 +90,18 @@ public class BotController : MonoBehaviour
         Instantiate(rocketPrefab, lauchPos.position, lauchPos.rotation);
     }
     void Shoot()
-    {
+    {       
         Instantiate(bulletPrefab, firePos1.position, firePos1.rotation);
         Instantiate(bulletPrefab, firePos2.position, firePos2.rotation);
-        Instantiate(bulletPrefab, firePos3.position, firePos3.rotation);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("PlayerBullet"))
+        {
+            //health -= damage;
+            CheckHealth();
+        }
+
     }
 }
