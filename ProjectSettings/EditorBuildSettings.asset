@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SettingScene.unity
     guid: 5c768bca75e8ffc459ebe4fc4392930a
+  - enabled: 1
+    path: Assets/Prefabs/HDuong/networkServer.unity
+    guid: 5bb5b9a7a27ccef4593ba323ffa5f2d5
   m_configObjects: {}
