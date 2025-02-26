@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class SettingButton : MonoBehaviour
 {
-    public void OnMouseDown()
+    private void OnMouseDown()
     {
         SceneManager.LoadScene("SettingScene");
     }
