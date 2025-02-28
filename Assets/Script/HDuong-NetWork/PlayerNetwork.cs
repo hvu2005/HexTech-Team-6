@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerNetwork : NetworkBehaviour
 {
+    [SerializeField] private Transform spawnedObject;
+    private Transform spawneedObjectTranform;
     private NetworkVariable<MyCustomData> randomNumber = new NetworkVariable<MyCustomData>(
         new MyCustomData
         {
@@ -40,13 +42,14 @@ public class PlayerNetwork : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            TestClientRpc(new ClientRpcParams
+            SpawnObjectServerRpc();
+            /*TestClientRpc(new ClientRpcParams
             {
                 Send = new ClientRpcSendParams
                 {
                     TargetClientIds = new List<ulong> { 1 }
                 }
-            });
+            });*/
             //TestServerRpc(new ServerRpcParams());
             /*randomNumber.Value = new MyCustomData
             {
@@ -54,6 +57,12 @@ public class PlayerNetwork : NetworkBehaviour
                 _bool = false,
                 message = "All your base are belong to us",
             };*/
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            spawneedObjectTranform.GetComponent <NetworkObject>().Despawn(true);
+            Destroy(spawneedObjectTranform.gameObject);
         }
         Vector3 moveDir = new Vector3(0, 0, 0);
 
@@ -64,6 +73,13 @@ public class PlayerNetwork : NetworkBehaviour
         float moveSpeed = 3f;
         transform.position += moveDir * moveSpeed * Time.deltaTime;
     }
+    [ServerRpc]
+    private void SpawnObjectServerRpc(ServerRpcParams rpcParams = default)
+    {
+        spawneedObjectTranform = Instantiate(spawnedObject);
+        spawneedObjectTranform.GetComponent<NetworkObject>().Spawn(true);
+    }
+
     [ServerRpc]
     private void TestServerRpc(ServerRpcParams serverRpcParams)
     {
