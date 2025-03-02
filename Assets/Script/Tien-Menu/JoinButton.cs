@@ -1,17 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ExitButtonObject : MonoBehaviour
+public class JoinButton: MonoBehaviour
 {
-    public Color clickColor = Color.gray; 
-    public float delayBeforeExit = 0.001f; 
+    public Color clickColor = Color.red;
     public float scaleFactor = 1.07f; 
     public float scaleSpeed = 5f; 
+    public float fadeDuration = 0.2f; 
 
     private Renderer objectRenderer;
     private Color originalColor;
     private Vector3 originalScale;
-    private bool isHovering = false;
 
     void Start()
     {
@@ -22,32 +21,35 @@ public class ExitButtonObject : MonoBehaviour
 
     void OnMouseEnter()
     {
-        isHovering = true;
         StopAllCoroutines();
-        StartCoroutine(ScaleObject(originalScale * scaleFactor));
+        StartCoroutine(ScaleObject(originalScale * scaleFactor)); 
     }
 
     void OnMouseExit()
     {
-        isHovering = false;
         StopAllCoroutines();
-        StartCoroutine(ScaleObject(originalScale));
+        StartCoroutine(FadeToColor(originalColor)); 
+        StartCoroutine(ScaleObject(originalScale)); 
     }
 
     void OnMouseDown()
     {
-        objectRenderer.material.color = clickColor; 
-        StartCoroutine(ExitGameAfterDelay());
+        StopAllCoroutines();
+        StartCoroutine(FadeToColor(clickColor)); 
     }
 
-    IEnumerator ExitGameAfterDelay()
+    IEnumerator FadeToColor(Color targetColor)
     {
-        yield return new WaitForSeconds(delayBeforeExit);
-        Application.Quit(); 
+        float elapsedTime = 0f;
+        Color startColor = objectRenderer.material.color;
 
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
+        while (elapsedTime < fadeDuration)
+        {
+            objectRenderer.material.color = Color.Lerp(startColor, targetColor, elapsedTime / fadeDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        objectRenderer.material.color = targetColor;
     }
 
     IEnumerator ScaleObject(Vector3 targetScale)

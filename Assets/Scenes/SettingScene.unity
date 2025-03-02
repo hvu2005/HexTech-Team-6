@@ -139,6 +139,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b8d9320bf00d469434a06e4f9a539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: scenemenu
+  clickColor: {r: 0.6981132, g: 0.67308646, b: 0.67308646, a: 1}
+  delayBeforeLoad: 0.01
+  scaleFactor: 1.07
+  scaleSpeed: 5
 --- !u!114 &40219509
 MonoBehaviour:
   m_ObjectHideFlags: 0
