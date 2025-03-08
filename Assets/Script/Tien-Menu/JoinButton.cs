@@ -1,19 +1,16 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class SettingButtonObject : MonoBehaviour
+public class JoinButton: MonoBehaviour
 {
-    public string sceneName = "SettingScene"; 
-    public Color clickColor = Color.gray; 
-    public float delayBeforeLoad = 0.001f; 
+    public Color clickColor = Color.red;
     public float scaleFactor = 1.07f; 
     public float scaleSpeed = 5f; 
+    public float fadeDuration = 0.2f; 
 
     private Renderer objectRenderer;
     private Color originalColor;
     private Vector3 originalScale;
-    private bool isHovering = false;
 
     void Start()
     {
@@ -24,28 +21,35 @@ public class SettingButtonObject : MonoBehaviour
 
     void OnMouseEnter()
     {
-        isHovering = true;
         StopAllCoroutines();
-        StartCoroutine(ScaleObject(originalScale * scaleFactor));
+        StartCoroutine(ScaleObject(originalScale * scaleFactor)); 
     }
 
     void OnMouseExit()
     {
-        isHovering = false;
         StopAllCoroutines();
-        StartCoroutine(ScaleObject(originalScale));
+        StartCoroutine(FadeToColor(originalColor)); 
+        StartCoroutine(ScaleObject(originalScale)); 
     }
 
     void OnMouseDown()
     {
-        objectRenderer.material.color = clickColor; 
-        StartCoroutine(LoadSceneAfterDelay());
+        StopAllCoroutines();
+        StartCoroutine(FadeToColor(clickColor)); 
     }
 
-    IEnumerator LoadSceneAfterDelay()
+    IEnumerator FadeToColor(Color targetColor)
     {
-        yield return new WaitForSeconds(delayBeforeLoad);
-        SceneManager.LoadScene(sceneName);
+        float elapsedTime = 0f;
+        Color startColor = objectRenderer.material.color;
+
+        while (elapsedTime < fadeDuration)
+        {
+            objectRenderer.material.color = Color.Lerp(startColor, targetColor, elapsedTime / fadeDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        objectRenderer.material.color = targetColor;
     }
 
     IEnumerator ScaleObject(Vector3 targetScale)

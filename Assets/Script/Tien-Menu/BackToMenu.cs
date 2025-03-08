@@ -2,13 +2,13 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class SettingButtonObject : MonoBehaviour
+public class BackToMenu : MonoBehaviour
 {
-    public string sceneName = "SettingScene"; 
-    public Color clickColor = Color.gray; 
-    public float delayBeforeLoad = 0.001f; 
-    public float scaleFactor = 1.07f; 
-    public float scaleSpeed = 5f; 
+    public string sceneName = "scenemenu";
+    public Color clickColor = Color.gray;
+    public float delayBeforeLoad = 0.001f;
+    public float scaleFactor = 1.07f;
+    public float scaleSpeed = 5f;
 
     private Renderer objectRenderer;
     private Color originalColor;
@@ -18,8 +18,8 @@ public class SettingButtonObject : MonoBehaviour
     void Start()
     {
         objectRenderer = GetComponent<Renderer>();
-        originalColor = objectRenderer.material.color; 
-        originalScale = transform.localScale; 
+        originalColor = objectRenderer.material.color;
+        originalScale = transform.localScale;
     }
 
     void OnMouseEnter()
@@ -38,7 +38,7 @@ public class SettingButtonObject : MonoBehaviour
 
     void OnMouseDown()
     {
-        objectRenderer.material.color = clickColor; 
+        objectRenderer.material.color = clickColor;
         StartCoroutine(LoadSceneAfterDelay());
     }
 

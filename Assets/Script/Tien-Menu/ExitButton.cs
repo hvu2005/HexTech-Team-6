@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class SettingButtonObject : MonoBehaviour
+public class ExitButtonObject : MonoBehaviour
 {
-    public string sceneName = "SettingScene"; 
     public Color clickColor = Color.gray; 
-    public float delayBeforeLoad = 0.001f; 
+    public float delayBeforeExit = 0.001f; 
     public float scaleFactor = 1.07f; 
     public float scaleSpeed = 5f; 
 
@@ -39,13 +37,17 @@ public class SettingButtonObject : MonoBehaviour
     void OnMouseDown()
     {
         objectRenderer.material.color = clickColor; 
-        StartCoroutine(LoadSceneAfterDelay());
+        StartCoroutine(ExitGameAfterDelay());
     }
 
-    IEnumerator LoadSceneAfterDelay()
+    IEnumerator ExitGameAfterDelay()
     {
-        yield return new WaitForSeconds(delayBeforeLoad);
-        SceneManager.LoadScene(sceneName);
+        yield return new WaitForSeconds(delayBeforeExit);
+        Application.Quit(); 
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 
     IEnumerator ScaleObject(Vector3 targetScale)
