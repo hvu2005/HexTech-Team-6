@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Shield
   - Ship
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

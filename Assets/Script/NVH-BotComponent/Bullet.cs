@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    //public float damage;
+    public float damage = 10f;
     public float lifeTime = 5f;
     public float speed;
     public Vector2 dir;
+
 
     public void setDir(Vector2 dir)
     {
@@ -33,6 +34,10 @@ public class Bullet : MonoBehaviour
             //do sth
         }
         if (other.CompareTag("Shield"))
+        {
+            Destroy(gameObject);
+        }
+        if (other.CompareTag("Ship"))
         {
             Destroy(gameObject);
             //do sth
