@@ -7,11 +7,12 @@ TagManager:
   - Shield
   - Ship
   - PlayerBullet
+  - OfBot
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 

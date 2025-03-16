@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet_bot
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: bd64c516d5f149c46a41ae09014e28ee, type: 3}
+      propertyPath: m_TagString
+      value: OfBot
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: bd64c516d5f149c46a41ae09014e28ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.975697
@@ -115,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e95c7e56b097e4cb43d1d3f090abd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
   lifeTime: 5
   speed: 2
-  dir: {x: 0, y: 0}
+  dir: {x: -1, y: -0.5}

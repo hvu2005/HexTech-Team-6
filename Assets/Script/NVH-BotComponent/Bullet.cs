@@ -9,7 +9,11 @@ public class Bullet : MonoBehaviour
     public float speed;
     public Vector2 dir;
 
-
+    public void setSpeed(float speed)
+    {
+        this.speed = speed;
+    }
+        
     public void setDir(Vector2 dir)
     {
         this.dir = dir;
@@ -37,7 +41,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (other.CompareTag("Ship"))
+        if (other.CompareTag("Ship") && !this.CompareTag("OfBot"))
         {
             Destroy(gameObject);
             //do sth
