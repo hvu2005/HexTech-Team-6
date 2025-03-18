@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SettingScene.unity
     guid: 5c768bca75e8ffc459ebe4fc4392930a
   - enabled: 0
-    path: Assets/Prefabs/HDuong/networkServer.unity
+    path: Assets/Scenes/HDuong/Map5-LastDance.unity
     guid: 5bb5b9a7a27ccef4593ba323ffa5f2d5
+  - enabled: 1
+    path: Assets/Scenes/HDuong/Temp.unity
+    guid: 4f8830e430d5b7c40a418f67bea88dac
   m_configObjects: {}

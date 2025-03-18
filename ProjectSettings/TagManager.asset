@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Audio
+  - Key1
+  - Key2
+  - Key3
+  - npc
   layers:
   - Default
   - TransparentFX
