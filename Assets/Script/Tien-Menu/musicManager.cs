@@ -1,68 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class musicManager : MonoBehaviour
 {
-    [SerializeField] Image soundOn;
-    [SerializeField] Image soundOff;
-    private bool muted = false;
+    public Slider volumeSlider;
+    private AudioSource audioSource;
+
     void Start()
     {
-        if(!PlayerPrefs.HasKey("muted"))
-        {
-            PlayerPrefs.SetInt("muted", 0);
-            Load();
-        }    
-        else
-        {
-            Load();
-        }    
-        UpdateButtonIcon();
-        AudioListener.pause = muted;
-    }
-    public void OnButtonPress()
-    {
-        if (muted == false)
-        {
-            muted = true;
-            AudioListener.pause = true;
-        }
+        audioSource = FindObjectOfType<MusicManager>().GetComponent<AudioSource>();
 
-        else
+        if (audioSource != null && volumeSlider != null)
         {
-            muted = false;
-            AudioListener.pause = false;    
-        } 
-        Save();
-        UpdateButtonIcon();
-    }
-
-    private void UpdateButtonIcon()
-    {
-        if (muted == false)
-        {
-            soundOn.enabled = true;
-            soundOff.enabled = false;
-        }
-        else
-        {
-            soundOn.enabled = false;
-            soundOff.enabled= true;
+            volumeSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f); 
+            audioSource.volume = volumeSlider.value;
+            volumeSlider.onValueChanged.AddListener(SetVolume);
         }
     }
-    private void Load()
-    {
-        muted = PlayerPrefs.GetInt("muted") == 1;
-    } 
 
-    private void Save()
+    public void SetVolume(float volume)
     {
-        PlayerPrefs.SetInt("muted",muted ? 1 : 0);
-    } 
-        
-        
-        
+        if (audioSource != null)
+        {
+            audioSource.volume = volume;
+            PlayerPrefs.SetFloat("MusicVolume", volume); 
+        }
+    }
 }
