@@ -38,11 +38,11 @@ public class PlayerNetwork : NetworkBehaviour
     }
     private void Update()
     {
-        if (!IsOwner) return;
+        /*if (!IsOwner) return;
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            SpawnObjectServerRpc();
+            SpawnObjectServerRpc();*/
             /*TestClientRpc(new ClientRpcParams
             {
                 Send = new ClientRpcSendParams
@@ -57,7 +57,7 @@ public class PlayerNetwork : NetworkBehaviour
                 _bool = false,
                 message = "All your base are belong to us",
             };*/
-        }
+       /* }
 
         if (Input.GetKeyDown(KeyCode.K))
         {
@@ -71,7 +71,7 @@ public class PlayerNetwork : NetworkBehaviour
         if (Input.GetKey(KeyCode.A)) moveDir.x = -1f;
         if (Input.GetKey(KeyCode.D)) moveDir.x = +1f;
         float moveSpeed = 3f;
-        transform.position += moveDir * moveSpeed * Time.deltaTime;
+        transform.position += moveDir * moveSpeed * Time.deltaTime;*/
     }
     [ServerRpc]
     private void SpawnObjectServerRpc(ServerRpcParams rpcParams = default)

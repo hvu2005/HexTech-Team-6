@@ -9821,7 +9821,7 @@ GameObject:
   - component: {fileID: 280341711}
   m_Layer: 0
   m_Name: BoxBlock2.3
-  m_TagString: Untagged
+  m_TagString: BlockDoor2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10418,7 +10418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &397682788
 Transform:
   m_ObjectHideFlags: 0
@@ -10816,7 +10816,7 @@ GameObject:
   - component: {fileID: 413493162}
   m_Layer: 0
   m_Name: BoxBlock1
-  m_TagString: Untagged
+  m_TagString: BlockDoor1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11347,7 +11347,7 @@ GameObject:
   - component: {fileID: 506898190}
   m_Layer: 0
   m_Name: BoxBlock2.4
-  m_TagString: Untagged
+  m_TagString: BlockDoor2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12380,7 +12380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &697919997
 Transform:
   m_ObjectHideFlags: 0
@@ -13948,7 +13948,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -14297,7 +14297,7 @@ GameObject:
   - component: {fileID: 1098317490}
   m_Layer: 0
   m_Name: BoxBlock2
-  m_TagString: Untagged
+  m_TagString: BlockDoor2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14414,6 +14414,83 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.125, y: 1.125}
   m_EdgeRadius: 0
+--- !u!1001 &1129975555
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -1110397370240183267, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
+      propertyPath: list1.Array.data[0]
+      value: 
+      objectReference: {fileID: 413493159}
+    - target: {fileID: -1110397370240183267, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
+      propertyPath: list1.Array.data[1]
+      value: 
+      objectReference: {fileID: 2090397244}
+    - target: {fileID: -1110397370240183267, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
+      propertyPath: list1.Array.data[2]
+      value: 
+      objectReference: {fileID: 1654092733}
+    - target: {fileID: -1110397370240183267, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
+      propertyPath: list1.Array.data[3]
+      value: 
+      objectReference: {fileID: 1466715751}
+    - target: {fileID: 620762689760718742, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 362407263
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782117377658076840, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782117377658076840, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782117377658076840, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.005595016
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782117377658076840, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782117377658076840, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782117377658076840, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782117377658076840, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782117377658076840, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782117377658076840, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782117377658076840, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830257907557186151, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
 --- !u!1 &1131536934
 GameObject:
   m_ObjectHideFlags: 0
@@ -14546,6 +14623,7 @@ GameObject:
   - component: {fileID: 1169875199}
   - component: {fileID: 1169875200}
   - component: {fileID: 1169875201}
+  - component: {fileID: 1169875202}
   m_Layer: 0
   m_Name: BoxMove
   m_TagString: Untagged
@@ -14562,7 +14640,7 @@ Transform:
   m_GameObject: {fileID: 1169875198}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.909, y: 6.842031, z: 0.16769426}
+  m_LocalPosition: {x: -30.6, y: 7, z: 0.16769426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14665,6 +14743,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.125, y: 1.125}
   m_EdgeRadius: 0
+--- !u!50 &1169875202
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169875198}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 3
+  m_LinearDrag: 5
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1190012520
 GameObject:
   m_ObjectHideFlags: 0
@@ -14714,7 +14819,7 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 1190012525}
-    PlayerPrefab: {fileID: 5830257907557186151, guid: ad2d98c711c95d2438f01d271385f1e5, type: 3}
+    PlayerPrefab: {fileID: 5830257907557186151, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
     Prefabs:
       NetworkPrefabsLists:
       - {fileID: 11400000, guid: e39247b0240a20c4e8d994a5f4b979f1, type: 2}
@@ -14792,7 +14897,7 @@ GameObject:
   - component: {fileID: 1236438558}
   m_Layer: 0
   m_Name: BoxBlock2.2
-  m_TagString: Untagged
+  m_TagString: BlockDoor2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15006,7 +15111,7 @@ GameObject:
   - component: {fileID: 1466715754}
   m_Layer: 0
   m_Name: BoxBlock1.4
-  m_TagString: Untagged
+  m_TagString: BlockDoor1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15465,7 +15570,7 @@ GameObject:
   - component: {fileID: 1654092736}
   m_Layer: 0
   m_Name: BoxBlock1.3
-  m_TagString: Untagged
+  m_TagString: BlockDoor1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17334,7 +17439,7 @@ GameObject:
   - component: {fileID: 2090397247}
   m_Layer: 0
   m_Name: BoxBlock1.2
-  m_TagString: Untagged
+  m_TagString: BlockDoor1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17565,7 +17670,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.019793749}
@@ -17821,3 +17926,4 @@ SceneRoots:
   - {fileID: 17737956}
   - {fileID: 231101373}
   - {fileID: 214265844}
+  - {fileID: 1129975555}
