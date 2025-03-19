@@ -13,7 +13,6 @@ public class SettingButtonObject : MonoBehaviour
     private Renderer objectRenderer;
     private Color originalColor;
     private Vector3 originalScale;
-    private bool isHovering = false;
 
     void Start()
     {
@@ -28,14 +27,12 @@ public class SettingButtonObject : MonoBehaviour
 
     void OnMouseEnter()
     {
-        isHovering = true;
         StopAllCoroutines();
         StartCoroutine(ScaleObject(originalScale * scaleFactor)); 
     }
 
     void OnMouseExit()
     {
-        isHovering = false;
         StopAllCoroutines();
         StartCoroutine(ScaleObject(originalScale)); 
     }
