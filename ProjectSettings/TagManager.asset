@@ -11,11 +11,15 @@ TagManager:
   - npc
   - BlockDoor1
   - BlockDoor2
+  - Shield
+  - Ship
+  - PlayerBullet
+  - OfBot
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
