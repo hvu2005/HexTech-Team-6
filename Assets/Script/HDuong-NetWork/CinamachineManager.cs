@@ -1,33 +1,39 @@
-﻿using Unity.Collections;
+﻿using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class CinemachineManager : NetworkBehaviour
 {
     [SerializeField] private CinemachineTargetGroup targetGroup;
     private Dictionary<ulong, Transform> clientTargets = new Dictionary<ulong, Transform>();
 
-    private IEnumerator WaitAndAddPlayer(ulong clientId)
+    public struct PlayerData : INetworkSerializable
     {
-        while (!NetworkManager.Singleton.ConnectedClients.ContainsKey(clientId) ||
-               NetworkManager.Singleton.ConnectedClients[clientId].PlayerObject == null)
+        public List<ulong> ClientIds;
+
+        public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
-            yield return null;
-        }
-
-        GameObject player = NetworkManager.Singleton.ConnectedClients[clientId].PlayerObject.gameObject;
-        Transform playerTransform = player.transform;
-
-        if (clientTargets.ContainsKey(clientId)) yield break;
-        clientTargets[clientId] = playerTransform;
-
-        if (IsServer)
-        {
-            List<Vector3> playerPositions = GetAllPlayerPositions();
-            UpdateClientsTargetGroupClientRpc(ConvertToFixedList(playerPositions));
+            if (serializer.IsWriter)
+            {
+                serializer.GetFastBufferWriter().WriteValueSafe(ClientIds.Count);
+                foreach (var id in ClientIds)
+                {
+                    serializer.GetFastBufferWriter().WriteValueSafe(id);
+                }
+            }
+            else
+            {
+                int count;
+                serializer.GetFastBufferReader().ReadValueSafe(out count);
+                ClientIds = new List<ulong>(count);
+                for (int i = 0; i < count; i++)
+                {
+                    ulong id;
+                    serializer.GetFastBufferReader().ReadValueSafe(out id);
+                    ClientIds.Add(id);
+                }
+            }
         }
     }
 
@@ -35,6 +41,7 @@ public class CinemachineManager : NetworkBehaviour
     {
         if (IsServer)
         {
+            AddClientToCamera(NetworkManager.Singleton.LocalClientId);
             NetworkManager.Singleton.OnClientConnectedCallback += AddClientToCamera;
             NetworkManager.Singleton.OnClientDisconnectCallback += RemoveClientFromCamera;
         }
@@ -51,8 +58,25 @@ public class CinemachineManager : NetworkBehaviour
 
     private void AddClientToCamera(ulong clientId)
     {
-        if (clientTargets.ContainsKey(clientId)) return;
         StartCoroutine(WaitAndAddPlayer(clientId));
+    }
+
+    private System.Collections.IEnumerator WaitAndAddPlayer(ulong clientId)
+    {
+        while (!NetworkManager.Singleton.ConnectedClients.ContainsKey(clientId) ||
+               NetworkManager.Singleton.ConnectedClients[clientId].PlayerObject == null)
+        {
+            yield return null;
+        }
+
+        GameObject player = NetworkManager.Singleton.ConnectedClients[clientId].PlayerObject.gameObject;
+        Transform playerTransform = player.transform;
+        clientTargets[clientId] = playerTransform;
+
+        if (IsServer)
+        {
+            UpdateClientsTargetGroup();
+        }
     }
 
     private void RemoveClientFromCamera(ulong clientId)
@@ -60,58 +84,59 @@ public class CinemachineManager : NetworkBehaviour
         if (clientTargets.ContainsKey(clientId))
         {
             clientTargets.Remove(clientId);
-
-            if (IsServer)
-            {
-                List<Vector3> playerPositions = GetAllPlayerPositions();
-                UpdateClientsTargetGroupClientRpc(ConvertToFixedList(playerPositions));
-            }
         }
-    }
 
-    // 🔥 Chuyển List<Vector3> thành FixedList
-    private FixedList512Bytes<Vector3> ConvertToFixedList(List<Vector3> positions)
-    {
-        FixedList512Bytes<Vector3> fixedList = new FixedList512Bytes<Vector3>();
-        foreach (var pos in positions)
+        if (IsServer)
         {
-            if (fixedList.Length < fixedList.Capacity)
-                fixedList.Add(pos);
+            UpdateClientsTargetGroup();
         }
-        return fixedList;
     }
 
-    // 🎯 Gửi danh sách positions bằng FixedList
+    private void UpdateClientsTargetGroup()
+    {
+        List<ulong> clientIds = new List<ulong>(clientTargets.Keys);
+        PlayerData data = new PlayerData { ClientIds = clientIds };
+        UpdateClientsTargetGroupClientRpc(data);
+    }
+
     [ClientRpc]
-    private void UpdateClientsTargetGroupClientRpc(FixedList512Bytes<Vector3> playerPositions)
+    private void UpdateClientsTargetGroupClientRpc(PlayerData data)
     {
         if (!IsClient) return;
 
-        targetGroup.m_Targets = new CinemachineTargetGroup.Target[playerPositions.Length];
+        List<Transform> newTargets = new List<Transform>();
 
-        for (int i = 0; i < playerPositions.Length; i++)
+        foreach (var clientId in data.ClientIds)
         {
-            GameObject newTarget = new GameObject($"PlayerTarget_{i}");
-            newTarget.transform.position = playerPositions[i];
-
-            targetGroup.m_Targets[i] = new CinemachineTargetGroup.Target
+            GameObject player = FindPlayerByClientId(clientId);
+            if (player)
             {
-                target = newTarget.transform,
+                newTargets.Add(player.transform);
+            }
+        }
+
+        //targetGroup.m_Targets = new CinemachineTargetGroup.Target[newTargets.Count];
+
+
+        for (int i = 0; i < newTargets.Count; i++)
+        {
+            /*targetGroup.m_Targets[i] = new CinemachineTargetGroup.Target
+            {
+                target = newTargets[i],
                 weight = 1f,
                 radius = 4f
             };
+            */
+            targetGroup.AddMember(newTargets[i], 1f, 4f);
         }
-
-        Debug.Log("🔄 Client đã cập nhật targetGroup!");
     }
 
-    private List<Vector3> GetAllPlayerPositions()
+    private GameObject FindPlayerByClientId(ulong clientId)
     {
-        List<Vector3> positions = new List<Vector3>();
-        foreach (var kvp in clientTargets)
+        if (NetworkManager.Singleton.ConnectedClients.ContainsKey(clientId))
         {
-            positions.Add(kvp.Value.position);
+            return NetworkManager.Singleton.ConnectedClients[clientId].PlayerObject.gameObject;
         }
-        return positions;
+        return null;
     }
 }
