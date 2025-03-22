@@ -23,7 +23,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void MovingAnimating()
     {
-        _animator.SetBool("isMoving", _controller.move != 0);
+        _animator.SetBool("isMoving", _controller.xMove != 0);
     }
 
     private void JumpingAnimating()

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 39b00a96fa15e8f47aa063fb4cf65680
+guid: f0739ba5708596b46b7011c1d14cc86e
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638782699787957892
+  platformSettingsDirtyTick: 638782697584172237
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,7 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: template
+  - name: PlayerGimick_Template
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -131,9 +131,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 10
-      height: 13
-    spriteID: f264360d45faedb41bc5b674d29c29df
+      width: 16
+      height: 14
+    spriteID: 3d2f3b0d0680a4b47ad67196ae707a60
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,21 +145,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -262645656
-    name: template
+    guid: -209130050
+    name: PlayerGimick_Template
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: template
+    - name: PlayerGimick_Template
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 3
+        x: 0
         y: 0
-        width: 10
-        height: 13
-      spriteId: f264360d45faedb41bc5b674d29c29df
+        width: 16
+        height: 14
+      spriteId: 3d2f3b0d0680a4b47ad67196ae707a60
     linkedCells: []
     parentIndex: -1
   platformSettings:

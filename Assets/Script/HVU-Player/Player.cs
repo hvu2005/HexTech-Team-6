@@ -47,7 +47,7 @@ public class Player : NetworkBehaviour
         Flip();
         checkIsGrounded();
 
-        Rb.velocity = new Vector2(_controller.move * moveSpeed, Rb.velocity.y);
+        Rb.velocity = new Vector2(_controller.xMove * moveSpeed, Rb.velocity.y);
 
         if(isGrounded && _controller.isJumping)
         {
@@ -66,12 +66,12 @@ public class Player : NetworkBehaviour
     {
         if(CanMove)
         {
-            if(_controller.move > 0 && !isFacingRight)
+            if(_controller.xMove > 0 && !isFacingRight)
             {
                 isFacingRight = !isFacingRight;
                 transform.rotation = Quaternion.identity;
             }
-            else if(_controller.move < 0 && isFacingRight)
+            else if(_controller.xMove < 0 && isFacingRight)
             {
                 isFacingRight = !isFacingRight;
                 transform.rotation = Quaternion.Euler(0, -180, 0);
