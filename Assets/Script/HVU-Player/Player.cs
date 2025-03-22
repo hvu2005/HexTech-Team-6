@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
@@ -11,7 +11,7 @@ public class Player : NetworkBehaviour
     public Rigidbody2D Rb;
 
     public bool CanMove { get; set; } = true;
-    public bool isFacingRight { get; private set; } = true;
+    //public bool isFacingRight { get; private set; } = true;
 
     //~~~~~~~~~~~~~Grounding~~~~~~~~~~~~~~
     public bool isGrounded {  get; private set; }
@@ -24,7 +24,9 @@ public class Player : NetworkBehaviour
     [SerializeField] private float jumpForce;
 
     private PlayerController _controller;
-    
+
+    public NetworkVariable<bool> isFacingRight = new NetworkVariable<bool>(true,
+       NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
     // Start is called before the first frame update
     void Start()
@@ -38,44 +40,62 @@ public class Player : NetworkBehaviour
     {
         
     }
-
     private void FixedUpdate()
     {
         if (!IsOwner) return;
 
-
         Flip();
         checkIsGrounded();
 
-        Rb.velocity = new Vector2(_controller.move * moveSpeed, Rb.velocity.y);
+        Vector2 newVelocity = (_controller.move != 0) ?
+            new Vector2(_controller.move * moveSpeed, Rb.velocity.y) : Vector2.zero;
 
-        if(isGrounded && _controller.isJumping)
-        {
-            Rb.velocity = new Vector2(Rb.velocity.x, jumpForce);
-        }
+        MoveServerRpc(newVelocity);
+    }
+
+    [ServerRpc]
+    private void MoveServerRpc(Vector2 velocity)
+    {
+        Rb.velocity = velocity;
     }
 
     private void checkIsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + groundOffset, Vector2.left, distance, whatIsGround );
-        Debug.DrawRay((Vector2)transform.position + groundOffset, Vector2.left * distance, Color.red);
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + groundOffset, Vector2.down, distance, whatIsGround);
+        Debug.DrawRay((Vector2)transform.position + groundOffset, Vector2.down * distance, Color.red);
         isGrounded = hit.collider != null;
     }
-    
+
     private void Flip()
     {
         if(CanMove)
         {
-            if(_controller.move > 0 && !isFacingRight)
+            if(_controller.move > 0 && !isFacingRight.Value)
             {
-                isFacingRight = !isFacingRight;
-                transform.rotation = Quaternion.identity;
+                isFacingRight.Value = !isFacingRight.Value;
+                //transform.rotation = Quaternion.identity;
+                FlipServerRpc(isFacingRight.Value);
+
             }
-            else if(_controller.move < 0 && isFacingRight)
+            else if(_controller.move < 0 && isFacingRight.Value)
             {
-                isFacingRight = !isFacingRight;
-                transform.rotation = Quaternion.Euler(0, -180, 0);
+                isFacingRight.Value = !isFacingRight.Value;
+                //transform.rotation = Quaternion.Euler(0, -180, 0);
+                FlipServerRpc(isFacingRight.Value);
+
             }
         }
+    }
+
+    [ServerRpc]
+    private void FlipServerRpc(bool facingRight)
+    {
+        FlipClientRpc(facingRight);
+    }
+
+    [ClientRpc]
+    private void FlipClientRpc(bool facingRight)
+    {
+        transform.rotation = facingRight ? Quaternion.identity : Quaternion.Euler(0, 180, 0);
     }
 }

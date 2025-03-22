@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,12 +14,12 @@ public class PlayerController : NetworkBehaviour
     public float move { get; private set; }
     public bool anyKeyDown { get; private set; }
 
-
     public override void OnNetworkSpawn()
     {
-        if(!IsOwner)
+        if (!IsOwner)
         {
-            enabled = false;
+            this.enabled = false; // Không tắt toàn bộ input
+            return;
         }
     }
 
