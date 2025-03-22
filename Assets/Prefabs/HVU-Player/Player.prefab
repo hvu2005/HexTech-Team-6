@@ -54,8 +54,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 4017881154
-  InScenePlacedSourceGlobalObjectIdHash: 0
+  GlobalObjectIdHash: 3985063672
+  InScenePlacedSourceGlobalObjectIdHash: 1015035627
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -175,6 +175,8 @@ MonoBehaviour:
   distance: 0.15
   moveSpeed: 5
   jumpForce: 5
+  isFacingRight:
+    m_InternalValue: 1
 --- !u!114 &5752395313245567477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,8 +303,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: 0, y: 0.09444338}
+  m_Size: {x: 0.5, y: 0.81111324}
   m_Direction: 0
 --- !u!114 &-1110397370240183267
 MonoBehaviour:

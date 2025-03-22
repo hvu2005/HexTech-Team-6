@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class NPCMovement : NetworkBehaviour
 {
-    public Transform pointA; // Điểm bắt đầu
-    public Transform pointB; // Điểm kết thúc
+    private Vector3 pointA; // Tọa độ điểm A
+    private Vector3 pointB;  // Tọa độ điểm B
     public float speed = 2f;
 
     private Vector3 targetPosition;
@@ -13,9 +13,11 @@ public class NPCMovement : NetworkBehaviour
 
     private void Start()
     {
+        pointA = transform.position - new Vector3(2f, 0f, 0f);
+        pointB = transform.position + new Vector3(2f, 0f, 0f);
         if (IsServer) // Chỉ Server điều khiển NPC
         {
-            targetPosition = pointB.position;
+            targetPosition = pointB;
             StartCoroutine(MoveNPC());
         }
     }
@@ -29,9 +31,8 @@ public class NPCMovement : NetworkBehaviour
             if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
             {
                 movingToB = !movingToB;
-                targetPosition = movingToB ? pointB.position : pointA.position;
+                targetPosition = movingToB ? pointB : pointA;
             }
-
             yield return null;
         }
     }

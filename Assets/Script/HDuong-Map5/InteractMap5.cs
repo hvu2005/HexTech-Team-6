@@ -14,7 +14,7 @@ public class NewBehaviourScript : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Key1")
-        {
+        {   
             foreach (GameObject go in list1)
             {
                 go.SetActive(false);
