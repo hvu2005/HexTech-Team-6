@@ -6,22 +6,39 @@ using UnityEngine;
 
 public class Level4 : LevelBase
 {
+    [SerializeField] private GameObject boss;
+
     [SerializeField] private GameObject camera;
-    [SerializeField] private GameObject grids;
+    [SerializeField] private GameObject contents;
     [SerializeField] private float gridSpeed;
+
+    [SerializeField] private ButtonScript fakeGroundButton;
     [SerializeField] private GameObject fakeGround;
+
+    [SerializeField] private ButtonScript gateButton;
+    [SerializeField] private GameObject gate;
+
+    [SerializeField] private ButtonScript bossButton;
+
+
+
+    private bool _isBossPharse;
  
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(WaitForCloseFakeGround());
+        StartCoroutine(WaitForPressButton());
+        StartCoroutine(WaitForEndState());
     }
 
     // Update is called once per frame
     void Update()
     {
-        grids.transform.position += new Vector3(-gridSpeed* Time.deltaTime, 0, 0);
-        Debug.Log(fakeGround.transform.position.x);
+        if(!_isBossPharse)
+        {
+            contents.transform.position += new Vector3(-gridSpeed * Time.deltaTime, 0, 0);
+        }
     }
 
     protected override void onLose()
@@ -34,18 +51,27 @@ public class Level4 : LevelBase
         throw new System.NotImplementedException();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Player"))
-        {
-
-        }
-    }
 
     private IEnumerator WaitForCloseFakeGround() {
-        yield return new WaitUntil(() => fakeGround.transform.position.x < -86);
+        yield return new WaitUntil(() => fakeGroundButton.isPressed);
 
 
         fakeGround.transform.DOLocalMoveY(1, 1).SetEase(Ease.OutQuad);
+    }
+
+    private IEnumerator WaitForPressButton()
+    {
+        yield return new WaitUntil(() => gateButton.isPressed);
+
+
+        gate.transform.DOLocalMoveY(1, 1).SetEase(Ease.OutQuad);
+    }
+
+   private IEnumerator WaitForEndState()
+    {
+        yield return new WaitUntil(() => bossButton.isPressed);
+
+        _isBossPharse = true;
+        boss.SetActive(true);
     }
 }
