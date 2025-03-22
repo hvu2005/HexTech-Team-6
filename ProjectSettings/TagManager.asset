@@ -15,6 +15,7 @@ TagManager:
   - Ship
   - PlayerBullet
   - OfBot
+  - Obstacle
   layers:
   - Default
   - TransparentFX

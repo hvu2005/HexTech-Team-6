@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/HDuong/Temp.unity
     guid: 4f8830e430d5b7c40a418f67bea88dac
+  - enabled: 1
+    path: Assets/Scenes/Map4 Demo.unity
+    guid: cb341ac30cd49354aa5bf2036e777c11
   m_configObjects: {}

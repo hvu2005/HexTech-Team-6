@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class see : MonoBehaviour
 {
     private GameObject[] list1;
     private GameObject[] list2;
