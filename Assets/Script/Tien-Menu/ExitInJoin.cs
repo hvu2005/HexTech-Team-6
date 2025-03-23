@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class JoinButton : MonoBehaviour
+public class ExitButton : MonoBehaviour
 {
     [Header("Objects")]
-    public GameObject[] objectsToHide; // Các object cần ẩn khi nhấn nút
-    public GameObject objectToShow;    // Object sẽ hiển thị sau khi nhấn
+    public GameObject[] objectsToShow; // Các object cần hiện lại khi nhấn nút Exit
+    public GameObject objectToHide;    // Object đang hiển thị, cần ẩn đi khi nhấn Exit
 
     [Header("Effects")]
     public Color clickColor = Color.red;
@@ -22,13 +22,6 @@ public class JoinButton : MonoBehaviour
         objectRenderer = GetComponent<Renderer>();
         originalColor = objectRenderer.material.color;
         originalScale = transform.localScale;
-
-        // Kiểm tra objectToShow có tồn tại và ẩn nó đi
-        if (objectToShow != null)
-        {
-            objectToShow.SetActive(true);  // Bật lên trước để tránh lỗi
-            objectToShow.SetActive(false); // Sau đó ẩn đi
-        }
     }
 
     void OnMouseEnter()
@@ -53,19 +46,19 @@ public class JoinButton : MonoBehaviour
 
     void ToggleObjects()
     {
-        // Ẩn tất cả object trong danh sách
-        foreach (GameObject obj in objectsToHide)
+        // Ẩn object đang hiển thị
+        if (objectToHide != null)
+        {
+            objectToHide.SetActive(false);
+        }
+
+        // Hiện lại tất cả object trong danh sách
+        foreach (GameObject obj in objectsToShow)
         {
             if (obj != null)
             {
-                obj.SetActive(false);
+                obj.SetActive(true);
             }
-        }
-
-        // Hiện object mới
-        if (objectToShow != null)
-        {
-            objectToShow.SetActive(true);
         }
     }
 
