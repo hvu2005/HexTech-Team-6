@@ -8,6 +8,8 @@ TagManager:
   - Ship
   - PlayerBullet
   - OfBot
+  - Spine
+  - Box
   layers:
   - Default
   - TransparentFX
