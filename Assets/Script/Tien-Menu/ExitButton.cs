@@ -3,47 +3,44 @@ using System.Collections;
 
 public class ExitButtonObject : MonoBehaviour
 {
-    public Color clickColor = Color.gray; 
-    public float delayBeforeExit = 0.001f; 
-    public float scaleFactor = 1.07f; 
-    public float scaleSpeed = 5f; 
+    public Color clickColor = Color.gray;
+    public float delayBeforeExit = 0.001f;
+    public float scaleFactor = 1.07f;
+    public float scaleSpeed = 5f;
 
     private Renderer objectRenderer;
     private Color originalColor;
     private Vector3 originalScale;
-    private bool isHovering = false;
 
     void Start()
     {
         objectRenderer = GetComponent<Renderer>();
-        originalColor = objectRenderer.material.color; 
-        originalScale = transform.localScale; 
+        originalColor = objectRenderer.material.color;
+        originalScale = transform.localScale;
     }
 
     void OnMouseEnter()
     {
-        isHovering = true;
         StopAllCoroutines();
         StartCoroutine(ScaleObject(originalScale * scaleFactor));
     }
 
     void OnMouseExit()
     {
-        isHovering = false;
         StopAllCoroutines();
         StartCoroutine(ScaleObject(originalScale));
     }
 
     void OnMouseDown()
     {
-        objectRenderer.material.color = clickColor; 
+        objectRenderer.material.color = clickColor;
         StartCoroutine(ExitGameAfterDelay());
     }
 
     IEnumerator ExitGameAfterDelay()
     {
         yield return new WaitForSeconds(delayBeforeExit);
-        Application.Quit(); 
+        Application.Quit();
 
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;

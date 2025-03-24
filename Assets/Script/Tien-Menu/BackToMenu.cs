@@ -13,7 +13,6 @@ public class BackToMenu : MonoBehaviour
     private Renderer objectRenderer;
     private Color originalColor;
     private Vector3 originalScale;
-    private bool isHovering = false;
 
     void Start()
     {
@@ -24,14 +23,12 @@ public class BackToMenu : MonoBehaviour
 
     void OnMouseEnter()
     {
-        isHovering = true;
         StopAllCoroutines();
         StartCoroutine(ScaleObject(originalScale * scaleFactor));
     }
 
     void OnMouseExit()
     {
-        isHovering = false;
         StopAllCoroutines();
         StartCoroutine(ScaleObject(originalScale));
     }
