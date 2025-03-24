@@ -26,7 +26,11 @@ public class PlayerController : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (IsOwner)
+        {
+            GameManager.Instance.RegisterPlayer(transform);
+            Debug.Log("hello world");
+        }
     }
 
     // Update is called once per frame
@@ -43,5 +47,12 @@ public class PlayerController : NetworkBehaviour
 
         isJumping = data.actions["Jump"].WasPressedThisFrame();
         move = data.actions["Move"].ReadValue<float>();
+    }
+    void OnDestroy()
+    {
+        if (IsOwner)
+        {
+            GameManager.Instance.UnregisterPlayer(transform);
+        }
     }
 }

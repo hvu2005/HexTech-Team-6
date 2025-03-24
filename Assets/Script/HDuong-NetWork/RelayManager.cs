@@ -28,7 +28,14 @@ public class RelayManager : MonoBehaviour
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
 
             UnityTransport transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
-            transport.SetRelayServerData(allocation.RelayServer.IpV4, (ushort)allocation.RelayServer.Port, allocation.AllocationIdBytes, allocation.Key, allocation.ConnectionData);
+            transport.SetRelayServerData(
+                allocation.RelayServer.IpV4,
+                (ushort)allocation.RelayServer.Port,
+                allocation.AllocationIdBytes,
+                allocation.Key,
+                allocation.ConnectionData
+            );
+
 
             NetworkManager.Singleton.StartHost();
             Debug.Log("Relay Created! Join Code: " + joinCode);
@@ -43,19 +50,33 @@ public class RelayManager : MonoBehaviour
 
     public async void JoinRelay(string joinCode)
     {
+        if (string.IsNullOrEmpty(joinCode))
+        {
+            Debug.LogError("Join code is empty!");
+            return;
+        }
+
         try
         {
             JoinAllocation allocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
 
             UnityTransport transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
-            transport.SetRelayServerData(allocation.RelayServer.IpV4, (ushort)allocation.RelayServer.Port, allocation.AllocationIdBytes, allocation.Key, allocation.ConnectionData, allocation.HostConnectionData);
+            transport.SetRelayServerData(
+                allocation.RelayServer.IpV4,
+                (ushort)allocation.RelayServer.Port,
+                allocation.AllocationIdBytes,
+                allocation.Key,
+                allocation.ConnectionData,
+                allocation.HostConnectionData
+            );
+
 
             NetworkManager.Singleton.StartClient();
             Debug.Log("Joined Relay with Code: " + joinCode);
         }
         catch (RelayServiceException e)
         {
-            Debug.LogError(e);
+            Debug.LogError("Failed to join relay: " + e.Message);
         }
     }
 }
