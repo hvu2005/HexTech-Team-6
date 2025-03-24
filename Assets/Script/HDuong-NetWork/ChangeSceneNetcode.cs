@@ -11,6 +11,7 @@ public class ChangeSceneNetcode : NetworkBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject); // Giữ lại qua các scene
         }
         else
         {
@@ -20,8 +21,13 @@ public class ChangeSceneNetcode : NetworkBehaviour
 
     public void ChangeScene(string sceneName)
     {
-        if (!IsServer) return; // Chỉ Server/Host mới có quyền đổi scene
+        if (!IsServer && !IsHost)
+        {
+            Debug.LogError("Không phải Server and host! Không thể chuyển Scene.");
+            return;
+        }
 
+        Debug.Log("Bắt đầu chuyển Scene: " + sceneName);
         NetworkManager.SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 }

@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/scenemenu.unity
+    guid: 4a28419a8fbfc844d820da6eac386bd4
+  - enabled: 1
+    path: Assets/Scenes/WaitRoom.unity
+    guid: c7a97027f59e227449cfdd64cace81e7
+  - enabled: 1
+    path: Assets/Scenes/HDuong/Map5-LastDance.unity
+    guid: 5bb5b9a7a27ccef4593ba323ffa5f2d5
   m_configObjects: {}

@@ -8,9 +8,11 @@ public class RelayUI : MonoBehaviour
     public InputField joinCodeInput; // InputField để nhập mã
     public Button hostButton;
     public Button joinButton;
+    private IDRoomInstance roomInstance;
 
     private void Start()
     {
+        roomInstance = FindAnyObjectByType<IDRoomInstance>(); 
         hostButton.onClick.AddListener(StartHost);
         joinButton.onClick.AddListener(JoinGame);
     }
@@ -20,7 +22,8 @@ public class RelayUI : MonoBehaviour
         string joinCode = await relayManager.CreateRelay();
         if (!string.IsNullOrEmpty(joinCode))
         {
-            joinCodeInput.text = joinCode; // Hiển thị Join Code cho client
+            //joinCodeInput.text = joinCode; // Hiển thị Join Code cho client
+            roomInstance.IdRoom = joinCode;
         }
     }
 

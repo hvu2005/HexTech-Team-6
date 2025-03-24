@@ -6,13 +6,21 @@ using Unity.Netcode.Transports.UTP;
 using Unity.Netcode;
 using UnityEngine;
 using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
-public class RelayManager : MonoBehaviour
+public class RelayManager : NetworkBehaviour
 {
     private const int MAX_CONNECTIONS = 4; // Số người chơi tối đa
+    private ChangeSceneNetcode changeScene;
 
     async void Start()
     {
+        changeScene = FindAnyObjectByType<ChangeSceneNetcode>();
+        if (changeScene == null)
+        {
+            Debug.LogError("ChangeSceneNetcode chưa được gán trong Scene!");
+        }
+
         await UnityServices.InitializeAsync();
         if (!AuthenticationService.Instance.IsSignedIn)
         {
@@ -24,7 +32,7 @@ public class RelayManager : MonoBehaviour
     {
         try
         {
-            Allocation allocation = await RelayService.Instance.CreateAllocationAsync(MAX_CONNECTIONS);
+            Allocation allocation = await RelayService.Instance.CreateAllocationAsync(10);
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
 
             UnityTransport transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
@@ -36,9 +44,23 @@ public class RelayManager : MonoBehaviour
                 allocation.ConnectionData
             );
 
-
             NetworkManager.Singleton.StartHost();
             Debug.Log("Relay Created! Join Code: " + joinCode);
+            // Chuyển scene trước khi Start Host
+            //NetworkManager.SceneManager.LoadScene("WaitRoom", LoadSceneMode.Single);
+            Debug.Log("haDuong");
+            changeScene.ChangeScene("WaitRoom");
+
+            // Đợi scene load xong rồi mới StartHost
+            /* NetworkManager.Singleton.SceneManager.OnLoadComplete += (clientId, sceneName, mode) =>
+             {
+                 if (sceneName == "WaitRoom" && clientId == NetworkManager.Singleton.LocalClientId)
+                 {
+                     NetworkManager.Singleton.StartHost();
+                     Debug.Log("Relay Created! Join Code: " + joinCode);
+                 }
+             };*/
+
             return joinCode;
         }
         catch (RelayServiceException e)
