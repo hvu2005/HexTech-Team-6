@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class SettingButtonObject : MonoBehaviour
 {
-    public string sceneName = "SettingScene"; 
-    public Color clickColor = Color.gray; 
-    public float delayBeforeLoad = 0.001f; 
+    public GameObject menuPanel;   
+    public GameObject settingPanel; 
+
+    public Color clickColor = Color.grey;
     public float scaleFactor = 1.07f; 
     public float scaleSpeed = 5f; 
 
@@ -18,34 +18,42 @@ public class SettingButtonObject : MonoBehaviour
     void Start()
     {
         objectRenderer = GetComponent<Renderer>();
-        originalColor = objectRenderer.material.color; 
-        originalScale = transform.localScale; 
+        originalColor = objectRenderer.material.color;
+        originalScale = transform.localScale;
+
+       
+        settingPanel.SetActive(false);
+        menuPanel.SetActive(true);
     }
 
     void OnMouseEnter()
     {
         isHovering = true;
         StopAllCoroutines();
-        StartCoroutine(ScaleObject(originalScale * scaleFactor));
+        StartCoroutine(ScaleObject(originalScale * scaleFactor)); 
     }
 
     void OnMouseExit()
     {
         isHovering = false;
         StopAllCoroutines();
-        StartCoroutine(ScaleObject(originalScale));
+        StartCoroutine(ScaleObject(originalScale)); 
     }
 
     void OnMouseDown()
     {
-        objectRenderer.material.color = clickColor; 
-        StartCoroutine(LoadSceneAfterDelay());
+        objectRenderer.material.color = clickColor;
+        StartCoroutine(SwitchPanels()); 
     }
 
-    IEnumerator LoadSceneAfterDelay()
+    IEnumerator SwitchPanels()
     {
-        yield return new WaitForSeconds(delayBeforeLoad);
-        SceneManager.LoadScene(sceneName);
+        yield return new WaitForSeconds(0.1f); 
+
+        
+        bool isMenuActive = menuPanel.activeSelf;
+        menuPanel.SetActive(!isMenuActive);
+        settingPanel.SetActive(isMenuActive);
     }
 
     IEnumerator ScaleObject(Vector3 targetScale)
