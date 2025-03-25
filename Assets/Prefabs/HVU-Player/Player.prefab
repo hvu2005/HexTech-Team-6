@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3985063672
+  GlobalObjectIdHash: 1564428290
   InScenePlacedSourceGlobalObjectIdHash: 1015035627
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -78,7 +78,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -303,8 +303,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.09444338}
-  m_Size: {x: 0.5, y: 0.81111324}
+  m_Offset: {x: 0, y: 0.16621184}
+  m_Size: {x: 0.5, y: 0.6675763}
   m_Direction: 0
 --- !u!114 &-1110397370240183267
 MonoBehaviour:
