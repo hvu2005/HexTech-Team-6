@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class TextFlashing : MonoBehaviour
 {
     public Color color1;
     public Color color2;
-    public Text flashingText;
+    public TextMesh flashingText;
   
     // Update is called once per frame
     void Update()
