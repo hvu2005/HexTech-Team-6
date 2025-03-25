@@ -5,16 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
     path: Assets/Scenes/scenemenu.unity
     guid: 4a28419a8fbfc844d820da6eac386bd4
-  - enabled: 1
-    path: Assets/Scenes/WaitRoom.unity
-    guid: 116a3f98d2481d140b3f58a2105d9e98
-  - enabled: 1
-    path: Assets/Scenes/Map3.unity
-    guid: 9eca6c1ba2048604aaadda3e89758a58
+  - enabled: 0
+    path: Assets/Scenes/SettingScene.unity
+    guid: 5c768bca75e8ffc459ebe4fc4392930a
   - enabled: 1
     path: Assets/Scenes/HDuong/Map5-LastDance.unity
     guid: 5bb5b9a7a27ccef4593ba323ffa5f2d5
+  - enabled: 0
+    path: Assets/Scenes/HDuong/Temp.unity
+    guid: 4f8830e430d5b7c40a418f67bea88dac
+  - enabled: 1
+    path: Assets/Scenes/Map4 Demo.unity
+    guid: cb341ac30cd49354aa5bf2036e777c11
   m_configObjects: {}

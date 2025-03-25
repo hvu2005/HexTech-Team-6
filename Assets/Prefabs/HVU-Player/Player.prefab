@@ -18,11 +18,12 @@ GameObject:
   - component: {fileID: 8273643950371205839}
   - component: {fileID: 7192875563052459607}
   - component: {fileID: -4719438435812810602}
+  - component: {fileID: 8488970077719875532}
   - component: {fileID: -3992590389908439907}
   - component: {fileID: -1110397370240183267}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,8 +55,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1564428290
-  InScenePlacedSourceGlobalObjectIdHash: 1015035627
+  GlobalObjectIdHash: 4017881154
+  InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -78,7 +79,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.5
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -131,15 +132,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6118311783672023424, guid: 39b00a96fa15e8f47aa063fb4cf65680, type: 3}
+  m_Sprite: {fileID: 5721872931250751363, guid: 39b00a96fa15e8f47aa063fb4cf65680, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.625, y: 0.8125}
+  m_Size: {x: 0.1, y: 0.13}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1349426148193220365
@@ -175,8 +176,6 @@ MonoBehaviour:
   distance: 0.15
   moveSpeed: 5
   jumpForce: 5
-  isFacingRight:
-    m_InternalValue: 1
 --- !u!114 &5752395313245567477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +270,19 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &8488970077719875532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5830257907557186151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a1f44e61c17f648a52405192175a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnedObject: {fileID: 4782117377658076840}
 --- !u!70 &-3992590389908439907
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -303,8 +315,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.16621184}
-  m_Size: {x: 0.5, y: 0.6675763}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
   m_Direction: 0
 --- !u!114 &-1110397370240183267
 MonoBehaviour:
