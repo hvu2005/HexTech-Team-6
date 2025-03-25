@@ -1,9 +1,14 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-public class HostButton : MonoBehaviour
+public class OpenJoinRoom : MonoBehaviour
 {
-    public Color clickColor = Color.gray;
+    [Header("Objects")]
+    public GameObject[] objectsToHide; // Các object cần ẩn đi khi nhấn nút Exit
+    public GameObject objectToShow;    // Object bị ẩn trước đó, cần hiện lại khi nhấn Exit
+
+    [Header("Effects")]
+    public Color clickColor = Color.red;
     public float scaleFactor = 1.07f;
     public float scaleSpeed = 5f;
     public float fadeDuration = 0.2f;
@@ -36,6 +41,25 @@ public class HostButton : MonoBehaviour
     {
         StopAllCoroutines();
         StartCoroutine(FadeToColor(clickColor));
+        ToggleObjects();
+    }
+
+    void ToggleObjects()
+    {
+        // Ẩn tất cả object trong danh sách
+        foreach (GameObject obj in objectsToHide)
+        {
+            if (obj != null)
+            {
+                obj.SetActive(false);
+            }
+        }
+
+        // Hiện object bị ẩn trước đó
+        if (objectToShow != null)
+        {
+            objectToShow.SetActive(true);
+        }
     }
 
     IEnumerator FadeToColor(Color targetColor)

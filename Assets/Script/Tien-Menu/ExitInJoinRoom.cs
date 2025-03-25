@@ -1,9 +1,14 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-public class HostButton : MonoBehaviour
+public class ExitButton : MonoBehaviour
 {
-    public Color clickColor = Color.gray;
+    [Header("Objects")]
+    public GameObject[] objectsToShow; // Các object cần hiện lại khi nhấn nút Exit
+    public GameObject objectToHide;    // Object đang hiển thị, cần ẩn đi khi nhấn Exit
+
+    [Header("Effects")]
+    public Color clickColor = Color.red;
     public float scaleFactor = 1.07f;
     public float scaleSpeed = 5f;
     public float fadeDuration = 0.2f;
@@ -36,6 +41,25 @@ public class HostButton : MonoBehaviour
     {
         StopAllCoroutines();
         StartCoroutine(FadeToColor(clickColor));
+        ToggleObjects();
+    }
+
+    void ToggleObjects()
+    {
+        // Ẩn object đang hiển thị
+        if (objectToHide != null)
+        {
+            objectToHide.SetActive(false);
+        }
+
+        // Hiện lại tất cả object trong danh sách
+        foreach (GameObject obj in objectsToShow)
+        {
+            if (obj != null)
+            {
+                obj.SetActive(true);
+            }
+        }
     }
 
     IEnumerator FadeToColor(Color targetColor)
