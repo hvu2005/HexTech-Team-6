@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ExitButton : MonoBehaviour
 {
-    [Header("Objects")]
+    /*[Header("Objects")]
     public GameObject[] objectsToShow; // Các object cần hiện lại khi nhấn nút Exit
     public GameObject objectToHide;    // Object đang hiển thị, cần ẩn đi khi nhấn Exit
 
@@ -84,5 +84,5 @@ public class ExitButton : MonoBehaviour
             yield return null;
         }
         transform.localScale = targetScale;
-    }
+    }*/
 }
