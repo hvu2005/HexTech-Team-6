@@ -4,6 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Audio
+  - Key1
+  - Key2
+  - Key3
+  - npc
+  - BlockDoor1
+  - BlockDoor2
   - Shield
   - Ship
   - PlayerBullet
@@ -46,4 +53,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: NPC
+    uniqueID: 2829759951
+    locked: 0
+  - name: Item
+    uniqueID: 646472195
     locked: 0
