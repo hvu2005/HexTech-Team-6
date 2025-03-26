@@ -47,15 +47,18 @@ TagManager:
   - name: UI
     uniqueID: 150032945
     locked: 0
-  - name: Item
-    uniqueID: 3309335149
-    locked: 0
   - name: ForeGround
     uniqueID: 2626368241
     locked: 0
   - name: Ground
     uniqueID: 1178705475
     locked: 0
+  - name: Item
+    uniqueID: 3309335149
+    locked: 0
   - name: Player
     uniqueID: 2722023827
+    locked: 0
+  - name: GameOver
+    uniqueID: 1316572573
     locked: 0

@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    private GameManager gameManager;
     private void Awake()
     {
-        gameManager = FindAnyObjectByType<GameManager>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Key"))
         {
-            gameManager.AddKeys(1);
-            Debug.Log("Get key");
+            Destroy(collision.gameObject);
+
+            GameManager.Instance.AddKeys(1);
+            Debug.Log(GameManager.Instance.keys);
+            if (GameManager.Instance.keys == 3)
+            {
+                GameManager.Instance.GameCompleted();
+            }
         }
         else if (collision.CompareTag("Trap"))
         {
-            Debug.Log("Trapped");
-
+            GameManager.Instance.GameOver();
         }
     }
    
