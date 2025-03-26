@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 4017881154
+  GlobalObjectIdHash: 3402180
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -315,8 +315,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.40978408}
-  m_Size: {x: 0.5, y: 0.83213663}
+  m_Offset: {x: 0, y: 0.41875172}
+  m_Size: {x: 0.5, y: 0.83750343}
   m_Direction: 0
 --- !u!114 &-1110397370240183267
 MonoBehaviour:

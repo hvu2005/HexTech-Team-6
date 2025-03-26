@@ -8,9 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/scenemenu.unity
     guid: 4a28419a8fbfc844d820da6eac386bd4
+  - enabled: 1
+    path: Assets/Scenes/WaitRoom.unity
+    guid: 116a3f98d2481d140b3f58a2105d9e98
+  - enabled: 1
+    path: Assets/Scenes/Map3.unity
+    guid: 9eca6c1ba2048604aaadda3e89758a58
   - enabled: 0
     path: Assets/Scenes/SettingScene.unity
     guid: 5c768bca75e8ffc459ebe4fc4392930a

@@ -3644,7 +3644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: {fileID: 1252504130}
   deactive: {fileID: 1953271543}
-  pushForce: 0.4
+  pushForce: 0.1
 --- !u!61 &1492114526
 BoxCollider2D:
   m_ObjectHideFlags: 0
