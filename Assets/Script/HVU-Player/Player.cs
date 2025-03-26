@@ -41,7 +41,7 @@ public class Player : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        if (!IsServer) return;
+        if (!IsOwner) return;
 
 
         Flip();
