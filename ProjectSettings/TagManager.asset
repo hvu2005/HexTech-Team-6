@@ -7,6 +7,11 @@ TagManager:
   - Audio
   - Key
   - Trap
+  - OfBot
+  - PlayerBullet
+  - Shield
+  - Spine
+  - Box
   layers:
   - Default
   - TransparentFX
@@ -47,11 +52,11 @@ TagManager:
   - name: UI
     uniqueID: 150032945
     locked: 0
-  - name: ForeGround
-    uniqueID: 2626368241
-    locked: 0
   - name: Ground
     uniqueID: 1178705475
+    locked: 0
+  - name: ForeGround
+    uniqueID: 2626368241
     locked: 0
   - name: Item
     uniqueID: 3309335149
