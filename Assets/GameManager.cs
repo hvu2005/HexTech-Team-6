@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -49,5 +50,13 @@ public class GameManager : MonoBehaviour
     public void GameCompleted()
     {
         Debug.Log("Pass");
+    }
+    public void RestartGame()
+    {
+        isGameOver = false;
+        keys = 0;
+        UpdateKey();
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Game");
     }
 }
