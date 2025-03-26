@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager2 : MonoBehaviour
 {
     private int keys = 0;
     public Text keyText;

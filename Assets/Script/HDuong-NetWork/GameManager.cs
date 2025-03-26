@@ -34,11 +34,15 @@ public class GameManager : NetworkBehaviour
     {
         List<Transform> players = new List<Transform>();
 
+        foreach (var player in FindObjectsOfType<PlayerControl>())  // Tìm tất cả Player đã spawn
+        {
+            players.Add(player.transform);
+        }
+        
         foreach (var player in FindObjectsOfType<PlayerController>())  // Tìm tất cả Player đã spawn
         {
             players.Add(player.transform);
         }
-
         return players;
     }
 

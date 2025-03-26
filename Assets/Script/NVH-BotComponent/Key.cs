@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Key : MonoBehaviour
+public class Key2 : MonoBehaviour
 {
     [SerializeField] private float amplitude = 0.5f;
     [SerializeField] private float frequency = 1f;

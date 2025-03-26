@@ -16,6 +16,8 @@ TagManager:
   - PlayerBullet
   - OfBot
   - Obstacle
+  - Key
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
@@ -58,4 +60,10 @@ TagManager:
     locked: 0
   - name: Item
     uniqueID: 646472195
+    locked: 0
+  - name: Player
+    uniqueID: 2484965285
+    locked: 0
+  - name: Ground
+    uniqueID: 1380439901
     locked: 0

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    private GameManager gameManager;
-    private void Awake()
+    private GameManager2 gameManager;
+    private void Awake()    
     {
-        gameManager = FindAnyObjectByType<GameManager>();
+        gameManager = FindAnyObjectByType<GameManager2>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.CompareTag("Key"))
         {
             gameManager.AddKeys(1);
