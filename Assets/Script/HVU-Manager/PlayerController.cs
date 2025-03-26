@@ -11,8 +11,11 @@ public class PlayerController : NetworkBehaviour
 
     public bool canGetAction { get; set; } = true;
     public bool isJumping { get; private set; }
-    public float move { get; private set; }
+    public float xMove { get; private set; }
+    public float yMove { get; private set; }    
     public bool anyKeyDown { get; private set; }
+
+    public bool isActing { get; private set; }
 
 
     public override void OnNetworkSpawn()
@@ -41,7 +44,12 @@ public class PlayerController : NetworkBehaviour
             return;
         }
 
+
+        isActing = data.actions["Action"].IsPressed();
         isJumping = data.actions["Jump"].WasPressedThisFrame();
-        move = data.actions["Move"].ReadValue<float>();
+        Vector2 moveInput = data.actions["Move"].ReadValue<Vector2>();
+        xMove = moveInput.x;
+        yMove = moveInput.y;
+        
     }
 }
