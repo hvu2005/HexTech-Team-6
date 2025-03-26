@@ -1,11 +1,65 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
+using System.Collections;
 
-public class SettingButton : MonoBehaviour
+public class SettingButtonObject : MonoBehaviour
 {
-    private void OnMouseDown()
+    public GameObject menuPanel;   
+    public GameObject settingPanel; 
+
+    public Color clickColor = Color.grey;
+    public float scaleFactor = 1.07f; 
+    public float scaleSpeed = 5f; 
+
+    private Renderer objectRenderer;
+    private Color originalColor;
+    private Vector3 originalScale;
+
+    void Start()
     {
-        SceneManager.LoadScene("SettingScene");
+        objectRenderer = GetComponent<Renderer>();
+        originalColor = objectRenderer.material.color;
+        originalScale = transform.localScale;
+
+       
+        settingPanel.SetActive(false);
+        menuPanel.SetActive(true);
+    }
+
+    void OnMouseEnter()
+    {
+        StopAllCoroutines();
+        StartCoroutine(ScaleObject(originalScale * scaleFactor)); 
+    }
+
+    void OnMouseExit()
+    {
+        StopAllCoroutines();
+        StartCoroutine(ScaleObject(originalScale)); 
+    }
+
+    void OnMouseDown()
+    {
+        objectRenderer.material.color = clickColor;
+        StartCoroutine(SwitchPanels()); 
+    }
+
+    IEnumerator SwitchPanels()
+    {
+        yield return new WaitForSeconds(0.1f); 
+
+        
+        bool isMenuActive = menuPanel.activeSelf;
+        menuPanel.SetActive(!isMenuActive);
+        settingPanel.SetActive(isMenuActive);
+    }
+
+    IEnumerator ScaleObject(Vector3 targetScale)
+    {
+        while (Vector3.Distance(transform.localScale, targetScale) > 0.01f)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * scaleSpeed);
+            yield return null;
+        }
+        transform.localScale = targetScale;
     }
 }
