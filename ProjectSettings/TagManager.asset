@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Audio
+<<<<<<< HEAD
   - Key1
   - Key2
   - Key3
@@ -18,11 +19,20 @@ TagManager:
   - Obstacle
   - Key
   - Trap
+=======
+  - Key
+  - Trap
+  - OfBot
+  - PlayerBullet
+  - Shield
+  - Spine
+  - Box
+>>>>>>> origin/mh
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
   - Ground
@@ -55,15 +65,36 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+<<<<<<< HEAD
   - name: NPC
     uniqueID: 2829759951
     locked: 0
   - name: Item
     uniqueID: 646472195
+=======
+  - name: UI
+    uniqueID: 150032945
+    locked: 0
+  - name: Ground
+    uniqueID: 1178705475
+>>>>>>> origin/mh
+    locked: 0
+  - name: ForeGround
+    uniqueID: 2626368241
+    locked: 0
+  - name: Item
+    uniqueID: 3309335149
     locked: 0
   - name: Player
+<<<<<<< HEAD
     uniqueID: 2484965285
     locked: 0
   - name: Ground
     uniqueID: 1380439901
+=======
+    uniqueID: 2722023827
+    locked: 0
+  - name: GameOver
+    uniqueID: 1316572573
+>>>>>>> origin/mh
     locked: 0

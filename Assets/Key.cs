@@ -5,6 +5,7 @@ public class Key : MonoBehaviour
 
     [SerializeField] private float amplitude = 0.5f;
     [SerializeField] private float frequency = 1f;
+    public GameManager gm;
 
     // Position Storage Variables
     Vector3 posOffset = new Vector3();
@@ -27,15 +28,6 @@ public class Key : MonoBehaviour
 
         transform.position = tempPos;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            Destroy(this.gameObject);
-        }
-
-    }
 }
-    // Update is called once per frame
+    
    
