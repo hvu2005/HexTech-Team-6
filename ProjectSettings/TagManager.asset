@@ -3,7 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - OfBot
+  - PlayerBullet
+  - Trap
+  - Key
+  - Spine
+  - Box
+  - Obstacle
+  - Ship
+  - Key3
+  - BlockDoor2
+  - npc
+  - BlockDoor1
+  - Key2
+  - Key1
   layers:
   - Default
   - TransparentFX
@@ -40,4 +54,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 1948823903
+    locked: 0
+  - name: Item
+    uniqueID: 76512007
+    locked: 0
+  - name: Key
+    uniqueID: 1375784785
+    locked: 0
+  - name: Trap
+    uniqueID: 428259549
+    locked: 0
+  - name: UI
+    uniqueID: 1466560365
+    locked: 0
+  - name: Player
+    uniqueID: 3361163465
     locked: 0
