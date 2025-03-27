@@ -2749,9 +2749,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332596b2d42e73346a3b6c14e792b88c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.5
-  frequency: 1
-  door: {fileID: 2066821321}
 --- !u!61 &1099250770
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9081,9 +9078,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332596b2d42e73346a3b6c14e792b88c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.5
-  frequency: 1
-  door: {fileID: 0}
 --- !u!114 &2095608653
 MonoBehaviour:
   m_ObjectHideFlags: 0
