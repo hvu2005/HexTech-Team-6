@@ -39,9 +39,7 @@ namespace Meryel.UnityCodeAssist.Editor
                 Monitor.Bump();
             else if (counter == 4)
                 MQTTnetInitializer.Bump();
-            else if (counter == 5)
-                Updater.CheckUpdateSilent();
-            else if (counter >= 6)
+            else if(counter >= 5)
                 EditorApplication.update -= OnUpdate;
         }
 

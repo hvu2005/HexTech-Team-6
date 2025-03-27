@@ -33,7 +33,7 @@ public class PlayerController : NetworkBehaviour
     void Update()
     {
         if (!IsOwner) return;
-            
+
         anyKeyDown = Input.anyKeyDown;
 
         if(!canGetAction)

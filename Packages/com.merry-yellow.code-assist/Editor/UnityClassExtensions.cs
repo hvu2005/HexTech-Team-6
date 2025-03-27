@@ -152,7 +152,6 @@ namespace Meryel.UnityCodeAssist.Editor
             data.StateTagHashes = new string[stateCount];
             data.StateFullPaths = new string[stateCount];
             data.StateFullPathHashes = new string[stateCount];
-            data.StateMotionNames = new string[stateCount];
             for (int i = 0; i < stateCount; i++)
             {
                 var state = states[i].state;
@@ -163,11 +162,6 @@ namespace Meryel.UnityCodeAssist.Editor
                 data.StateTagHashes[i] = Animator.StringToHash(state.tag).ToString();
                 data.StateFullPaths[i] = fullPath;
                 data.StateFullPathHashes[i] = Animator.StringToHash(fullPath).ToString();
-                var motion = state.motion;
-                if (motion)
-                    data.StateMotionNames[i] = motion.name;
-                else
-                    data.StateMotionNames[i] = string.Empty;
             }
 
             var transitionCount = transitions.Count;
