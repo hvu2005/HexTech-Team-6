@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManager2 : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static GameManager2 Instance;
+    public static GameManager Instance;
     private void OnEnable()
     {
         Instance = this;

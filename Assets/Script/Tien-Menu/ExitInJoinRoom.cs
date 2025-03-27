@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ExitInJoinRoom : MonoBehaviour
+public class ExitButton : MonoBehaviour
 {
     [Header("Objects")]
     public GameObject[] objectsToShow; // Các object cần hiện lại khi nhấn nút Exit

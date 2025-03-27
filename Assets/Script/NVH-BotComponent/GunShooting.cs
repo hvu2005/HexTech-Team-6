@@ -9,7 +9,7 @@ public class GunShooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //playerBullet.GetComponent<Bullet>().dir = new Vector2(1, 0);
+        playerBullet.GetComponent<Bullet>().dir = new Vector2(1, 0);
         StartCoroutine(TestShootRoutine());
     }
 

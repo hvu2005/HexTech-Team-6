@@ -4,20 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - OfBot
-  - PlayerBullet
-  - Trap
+  - Audio
   - Key
-  - Spine
-  - Box
-  - Obstacle
-  - Ship
-  - Key3
-  - BlockDoor2
-  - npc
-  - BlockDoor1
-  - Key2
-  - Key1
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -25,7 +14,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
@@ -55,21 +44,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BackGround
-    uniqueID: 1948823903
+  - name: UI
+    uniqueID: 150032945
+    locked: 0
+  - name: ForeGround
+    uniqueID: 2626368241
+    locked: 0
+  - name: Ground
+    uniqueID: 1178705475
     locked: 0
   - name: Item
-    uniqueID: 76512007
-    locked: 0
-  - name: Key
-    uniqueID: 1375784785
-    locked: 0
-  - name: Trap
-    uniqueID: 428259549
-    locked: 0
-  - name: UI
-    uniqueID: 1466560365
+    uniqueID: 3309335149
     locked: 0
   - name: Player
-    uniqueID: 3361163465
+    uniqueID: 2722023827
+    locked: 0
+  - name: GameOver
+    uniqueID: 1316572573
     locked: 0
