@@ -1292,6 +1292,18 @@ PrefabInstance:
       propertyPath: NetworkConfig.PlayerPrefab
       value: 
       objectReference: {fileID: 5786817571499397842, guid: 7588a21bb712b384ab50f42077c1237c, type: 3}
+    - target: {fileID: 6711732936036382306, guid: 0ab377f66e4e36b4aa637af46b0671cc, type: 3}
+      propertyPath: NetworkConfig.ConnectionApproval
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711732936036382306, guid: 0ab377f66e4e36b4aa637af46b0671cc, type: 3}
+      propertyPath: NetworkConfig.ClientConnectionBufferTimeout
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711732936036382306, guid: 0ab377f66e4e36b4aa637af46b0671cc, type: 3}
+      propertyPath: NetworkConfig.EnsureNetworkVariableLengthSafety
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
