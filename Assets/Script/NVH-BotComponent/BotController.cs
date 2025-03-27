@@ -6,12 +6,11 @@ using UnityEngine.UI;
 
 public class BotController : MonoBehaviour
 {
-    [SerializeField] private float introSpeed;
-    [SerializeField] private float moveSpeed = 3f;
-    [SerializeField] private float changeDirectionTime = 1f;
-    [SerializeField] private BoxCollider2D gridArea;
+    [SerializeField]private float moveSpeed = 3f;
+    [SerializeField]private float changeDirectionTime = 1f;
+    [SerializeField]private BoxCollider2D gridArea;
 
-    [SerializeField] private Vector2 targetPosition;
+    private Vector2 targetPosition;
     private Rigidbody2D rb;
 
     public GameObject bulletPrefab;
@@ -30,7 +29,7 @@ public class BotController : MonoBehaviour
     private List<GameObject> boomList = new List<GameObject>();
     void Start()
     {
-        
+        targetPosition = this.transform.position;
         health = slider.value;
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(AllRoutine());
@@ -47,7 +46,7 @@ public class BotController : MonoBehaviour
 
     void Move()
     {
-        Vector2 newPosition = Vector2.MoveTowards(transform.position, targetPosition, introSpeed * Time.deltaTime);
+        Vector2 newPosition = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
         rb.MovePosition(newPosition);
     }
     //Change random in gird area
@@ -59,7 +58,6 @@ public class BotController : MonoBehaviour
             float x = Random.Range(gridArea.bounds.min.x, gridArea.bounds.max.x); // Giới hạn x trong gridArea
             float y = Random.Range(gridArea.bounds.min.y, gridArea.bounds.max.y); // Giới hạn y trong gridArea
             targetPosition = new Vector2(x, y); // Đặt targetPosition mới hoàn toàn trong gridArea
-            introSpeed = moveSpeed;
         }
     }
     //all routine

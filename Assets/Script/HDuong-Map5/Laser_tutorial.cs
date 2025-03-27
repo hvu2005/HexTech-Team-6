@@ -13,8 +13,7 @@ public class Laser_tutorial : MonoBehaviour
     private void Awake()
     {
         m_tranform = GetComponent<Transform>();
-        m_lineRenderer = GetComponent<LineRenderer>();
-        m_lineRenderer.positionCount = 2; // Đảm bảo có 2 điểm để vẽ tia
+        m_lineRenderer.material.color = Color.red;
     }
     private void Update()
     {
@@ -22,21 +21,14 @@ public class Laser_tutorial : MonoBehaviour
     }
     void shootLaser()
     {
-        RaycastHit2D _hit = Physics2D.Raycast(laserFirePoint.position, transform.right, defDistanceRay);
-
-        if (_hit.collider != null)
+        if(Physics2D.Raycast(m_tranform.position, transform.right))
         {
+            RaycastHit2D _hit = Physics2D.Raycast(laserFirePoint.position, transform.right);
             Draw2DRay(laserFirePoint.position, _hit.point);
-
-            // Kiểm tra nếu trúng đối tượng có tag "Player"
-            if (_hit.collider.CompareTag("Player"))
-            {
-                Debug.Log("Laser hit the player!");
-            }
         }
         else
         {
-            Draw2DRay(laserFirePoint.position, (Vector2)laserFirePoint.position + (Vector2)transform.right * defDistanceRay);
+            Draw2DRay(laserFirePoint.position, laserFirePoint.transform.right * defDistanceRay);
         }
     }
 
