@@ -28,7 +28,7 @@ public class JumpPad : MonoBehaviour
             }
         }
     }
-
+        
     private void ResetAnimation()
     {
         if (animator != null)
