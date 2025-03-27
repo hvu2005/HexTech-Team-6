@@ -13,16 +13,16 @@ public class PlayerCollision : MonoBehaviour
         {
             Destroy(collision.gameObject);
 
-            GameManager.Instance.AddKeys(1);
-            Debug.Log(GameManager.Instance.keys);
-            if (GameManager.Instance.keys == 3)
+            GameManager2.Instance.AddKeys(1);
+            Debug.Log(GameManager2.Instance.keys);
+            if (GameManager2.Instance.keys == 3)
             {
-                GameManager.Instance.GameCompleted();
+                GameManager2.Instance.GameCompleted();
             }
         }
         else if (collision.CompareTag("Trap"))
         {
-            GameManager.Instance.GameOver();
+            GameManager2.Instance.GameOver();
         }
     }
    

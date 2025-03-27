@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager2 : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager2 Instance;
     private void OnEnable()
     {
         Instance = this;
