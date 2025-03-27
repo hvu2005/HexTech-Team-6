@@ -36,32 +36,29 @@ public class Player : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void FixedUpdate()
-    {
         if (!IsOwner) return;
 
         Flip();
         checkIsGrounded();
 
-        // Cập nhật tốc độ di chuyển
         Rb.velocity = new Vector2(_controller.xMove * moveSpeed, Rb.velocity.y);
 
-        // Nhảy
         if (isGrounded && _controller.isJumping)
         {
             Rb.velocity = new Vector2(Rb.velocity.x, jumpForce);
-            isGrounded = false; // Ngăn nhảy liên tục
         }
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
 
     private void checkIsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + groundOffset, Vector2.down, distance, whatIsGround);
-        Debug.DrawRay((Vector2)transform.position + groundOffset, Vector2.down * distance, Color.red);
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + groundOffset, Vector2.right, distance, whatIsGround);
+        Debug.DrawRay((Vector2)transform.position + groundOffset, Vector2.right * distance, Color.red);
         isGrounded = hit.collider != null;
     }
 

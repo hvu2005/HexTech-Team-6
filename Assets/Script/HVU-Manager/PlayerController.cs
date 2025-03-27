@@ -46,7 +46,7 @@ public class PlayerController : NetworkBehaviour
 
 
         isActing = data.actions["Action"].IsPressed();
-        isJumping = data.actions["Jump"].WasPressedThisFrame();
+        isJumping = data.actions["Jump"].IsPressed();
         Vector2 moveInput = data.actions["Move"].ReadValue<Vector2>();
         xMove = moveInput.x;
         yMove = moveInput.y;

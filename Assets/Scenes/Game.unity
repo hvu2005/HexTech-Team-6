@@ -2932,7 +2932,7 @@ Transform:
   m_GameObject: {fileID: 623525419}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.3552885, y: -3.0258493, z: 0}
+  m_LocalPosition: {x: 77.19309, y: -11.1915455, z: -187.52536}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3015,7 +3015,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6222,7 +6222,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 12.947247
+    OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -9029,7 +9029,7 @@ GameObject:
   - component: {fileID: 1789259185}
   - component: {fileID: 1789259184}
   - component: {fileID: 1789259183}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: GroundNew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26217,7 +26217,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 7
+    OrthographicSize: 4
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

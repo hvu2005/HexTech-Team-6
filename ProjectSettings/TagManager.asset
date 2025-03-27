@@ -22,7 +22,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
@@ -67,9 +67,9 @@ TagManager:
   - name: Trap
     uniqueID: 428259549
     locked: 0
-  - name: UI
-    uniqueID: 1466560365
-    locked: 0
   - name: Player
     uniqueID: 3361163465
+    locked: 0
+  - name: UI
+    uniqueID: 1466560365
     locked: 0
