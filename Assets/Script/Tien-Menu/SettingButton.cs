@@ -3,12 +3,11 @@ using System.Collections;
 
 public class SettingButtonObject : MonoBehaviour
 {
-    public GameObject menuPanel;   
-    public GameObject settingPanel; 
+    public GameObject targetObject; // Object duy nhất để ẩn/hiện
 
     public Color clickColor = Color.grey;
-    public float scaleFactor = 1.07f; 
-    public float scaleSpeed = 5f; 
+    public float scaleFactor = 1.07f;
+    public float scaleSpeed = 5f;
 
     private Renderer objectRenderer;
     private Color originalColor;
@@ -20,44 +19,44 @@ public class SettingButtonObject : MonoBehaviour
         originalColor = objectRenderer.material.color;
         originalScale = transform.localScale;
 
-       
-        settingPanel.SetActive(false);
-        menuPanel.SetActive(true);
+        // Đảm bảo object được gán và thiết lập trạng thái ban đầu  
+        if (targetObject != null) targetObject.SetActive(true);
     }
 
     void OnMouseEnter()
     {
         StopAllCoroutines();
-        StartCoroutine(ScaleObject(originalScale * scaleFactor)); 
+        StartCoroutine(ScaleObject(originalScale * scaleFactor));
     }
 
     void OnMouseExit()
     {
         StopAllCoroutines();
-        StartCoroutine(ScaleObject(originalScale)); 
+        StartCoroutine(ScaleObject(originalScale));
     }
 
     void OnMouseDown()
     {
         objectRenderer.material.color = clickColor;
-        StartCoroutine(SwitchPanels()); 
+        StartCoroutine(ToggleObject());
     }
 
-    IEnumerator SwitchPanels()
+    IEnumerator ToggleObject()
     {
-        yield return new WaitForSeconds(0.1f); 
+        yield return new WaitForSeconds(0.1f);
 
-        
-        bool isMenuActive = menuPanel.activeSelf;
-        menuPanel.SetActive(!isMenuActive);
-        settingPanel.SetActive(isMenuActive);
+        // Nếu targetObject tồn tại, đổi trạng thái hiện/ẩn
+        if (targetObject != null)
+        {
+            targetObject.SetActive(!targetObject.activeSelf);
+        }
     }
 
     IEnumerator ScaleObject(Vector3 targetScale)
     {
         while (Vector3.Distance(transform.localScale, targetScale) > 0.01f)
         {
-            transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * scaleSpeed);
+            transform.localScale = Vector3.MoveTowards(transform.localScale, targetScale, Time.deltaTime * scaleSpeed);
             yield return null;
         }
         transform.localScale = targetScale;
