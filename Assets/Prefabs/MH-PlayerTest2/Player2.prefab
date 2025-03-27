@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6068040076629916835}
   - component: {fileID: 1272217571930272172}
   - component: {fileID: 1281238979019995900}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a1f44e61c17f648a52405192175a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnedObject: {fileID: 8073701592018587421}
+  spawnedObjectPrefab: {fileID: 5786817571499397842}
 --- !u!1 &6623706707941120246
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5436859867516702679}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a1f44e61c17f648a52405192175a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnedObject: {fileID: 4782117377658076840}
+  spawnedObjectPrefab: {fileID: 5830257907557186151}
 --- !u!68 &6887755941365214519
 EdgeCollider2D:
   m_ObjectHideFlags: 0
