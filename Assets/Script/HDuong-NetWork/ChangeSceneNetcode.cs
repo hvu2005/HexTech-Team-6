@@ -11,7 +11,7 @@ public class ChangeSceneNetcode : NetworkBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Giữ lại qua các scene
+            DontDestroyOnLoad(gameObject); // Giữ lại qua các scene 
         }
         else
         {

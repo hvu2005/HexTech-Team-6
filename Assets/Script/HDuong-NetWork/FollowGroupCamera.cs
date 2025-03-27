@@ -14,7 +14,7 @@ public class FollowGroupCamera : MonoBehaviour
         // Lấy danh sách player từ GameManager
         targets = GameManager.Instance.GetPlayers();
 
-        // Kiểm tra nếu không có nhân vật nào thì không làm gì cả
+        // Kiểm tra nếu không có nhân vật nào thì không làm gì cả 
         if (targets == null || targets.Count == 0) return;
 
         Vector3 centerPoint = GetCenterPoint();

@@ -14,7 +14,7 @@ public class PlayerNetwork : NetworkBehaviour
             _int = 56,
             _bool = true,
         }, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
-
+     
     public struct MyCustomData : INetworkSerializable
     {
         public int _int;

@@ -11,7 +11,7 @@ public class GameManager : NetworkBehaviour
     {
         Instance = this;
     }
-
+     
     public void RegisterPlayer(Transform player)
     {
         if (!players.Contains(player))
