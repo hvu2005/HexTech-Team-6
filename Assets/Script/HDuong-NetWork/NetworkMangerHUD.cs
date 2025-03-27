@@ -12,7 +12,7 @@ public class Network : MonoBehaviour
     }
 
     public void StartHost()
-    {
+    { 
         NetworkManager.Singleton.StartHost();
         Debug.Log("Host started.");
     }
