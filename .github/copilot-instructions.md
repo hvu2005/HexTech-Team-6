@@ -2,7 +2,7 @@
 - Project name: HexTech-Team-6
 - Unity version: Unity 2022.3.45f1
 - Active game object:
-  - Name: Player
+  - Name: Player2
   - Tag: Player
-  - Layer: Default
+  - Layer: Ground
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

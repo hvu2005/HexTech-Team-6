@@ -14,7 +14,7 @@ public class PlayerControl : NetworkBehaviour
     private Rigidbody2D rb;
     private Vector3 lastPosition;
     private float lastScaleX;
-    public bool isGrounded;
+    public bool isGrounded = false;
 
     // 🟢 Dùng NetworkVariable để đồng bộ vị trí, hướng xoay và animation
     private NetworkVariable<Vector3> networkPosition = new NetworkVariable<Vector3>();

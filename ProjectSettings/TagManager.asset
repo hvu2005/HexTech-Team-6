@@ -3,31 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Audio
-<<<<<<< HEAD
-  - Key1
-  - Key2
-  - Key3
-  - npc
-  - BlockDoor1
-  - BlockDoor2
-  - Shield
-  - Ship
-  - PlayerBullet
-  - OfBot
-  - Obstacle
-  - Key
-  - Trap
-=======
-  - Key
-  - Trap
-  - OfBot
-  - PlayerBullet
-  - Shield
-  - Spine
-  - Box
->>>>>>> origin/mh
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -35,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
+  - 
   - 
   - 
   - 
@@ -64,37 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-<<<<<<< HEAD
-  - name: NPC
-    uniqueID: 2829759951
-    locked: 0
-  - name: Item
-    uniqueID: 646472195
-=======
-  - name: UI
-    uniqueID: 150032945
-    locked: 0
-  - name: Ground
-    uniqueID: 1178705475
->>>>>>> origin/mh
-    locked: 0
-  - name: ForeGround
-    uniqueID: 2626368241
-    locked: 0
-  - name: Item
-    uniqueID: 3309335149
-    locked: 0
-  - name: Player
-<<<<<<< HEAD
-    uniqueID: 2484965285
-    locked: 0
-  - name: Ground
-    uniqueID: 1380439901
-=======
-    uniqueID: 2722023827
-    locked: 0
-  - name: GameOver
-    uniqueID: 1316572573
->>>>>>> origin/mh
     locked: 0
