@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Unity.Netcode;
+using UnityEngine;
 
-public class FallTrap : MonoBehaviour
+public class FallTrap : NetworkBehaviour
 {
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
