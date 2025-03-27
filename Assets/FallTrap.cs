@@ -9,10 +9,10 @@ public class FallTrap : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
 
         rb.bodyType = RigidbodyType2D.Kinematic; // Để bẫy không rơi ngay
-        spriteRenderer.enabled = false; // Ẩn bẫy ngay từ đầu
+        gameObject.SetActive(false); // Ẩn bẫy ngay từ đầu
 
         Debug.Log("FallTrap Initialized - Hidden");
     }
@@ -21,7 +21,7 @@ public class FallTrap : MonoBehaviour
     {
         if (!hasFallen)
         {
-            spriteRenderer.enabled = true; // Hiện bẫy ra
+            gameObject.SetActive(true); // Hiện bẫy ra
             rb.bodyType = RigidbodyType2D.Dynamic; // Cho phép rơi xuống
             rb.gravityScale = 2f;
             hasFallen = true;
@@ -34,7 +34,7 @@ public class FallTrap : MonoBehaviour
     {
         if (hasFallen)
         {
-            rb.bodyType = RigidbodyType2D.Static; // Khi chạm đất thì đứng yên
+            rb.bodyType = RigidbodyType2D.Kinematic; // Khi chạm đất thì đứng yên
             Debug.Log("Trap Landed - Now Static");
         }
     }
