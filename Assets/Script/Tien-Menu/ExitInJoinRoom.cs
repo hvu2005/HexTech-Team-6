@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ExitButton : MonoBehaviour
+public class ExitButton2 : MonoBehaviour
 {
     [Header("Objects")]
     public GameObject[] objectsToShow; // Các object cần hiện lại khi nhấn nút Exit
