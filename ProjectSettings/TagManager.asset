@@ -8,6 +8,16 @@ TagManager:
   - PlayerBullet
   - Trap
   - Key
+  - Spine
+  - Box
+  - Obstacle
+  - Ship
+  - Key3
+  - BlockDoor2
+  - npc
+  - BlockDoor1
+  - Key2
+  - Key1
   layers:
   - Default
   - TransparentFX
@@ -59,4 +69,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1466560365
+    locked: 0
+  - name: Player
+    uniqueID: 3361163465
     locked: 0
