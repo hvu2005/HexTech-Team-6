@@ -7,9 +7,9 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "6f34ed98-9f08-4dcd-ad0b-59c9bff1b80b",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -22,13 +22,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Action",
+                    "type": "Button",
+                    "id": "474b6b93-6b99-49dd-8e12-afbcaefa8d8a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
-                    "name": "1D Axis",
-                    "id": "4ea346e1-d00e-478f-961c-2baa3f9951d6",
-                    "path": "1DAxis",
+                    "name": "",
+                    "id": "ae8bbc35-7e2e-4e06-8147-866bf71baa92",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "8c8c65e9-93a7-45f8-9ce5-22b92ab23e7d",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -37,8 +57,30 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
-                    "id": "bb92624b-79a1-48b2-9474-ceaebc185f0a",
+                    "name": "up",
+                    "id": "21790edb-0b30-496a-ba2b-eb2f275cc8bd",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "982a3b1d-1b8f-4689-9ba5-48502ee07544",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "9390eb43-5f28-4701-99a7-33fbeca129b5",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -48,8 +90,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
-                    "id": "caee9253-8ef3-46eb-8361-33ce04987305",
+                    "name": "right",
+                    "id": "0cb0deeb-43f1-4eaa-a99c-66e951f1bdad",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -60,12 +102,12 @@
                 },
                 {
                     "name": "",
-                    "id": "ae8bbc35-7e2e-4e06-8147-866bf71baa92",
-                    "path": "<Keyboard>/space",
+                    "id": "38c76c19-a84a-49cc-9e92-fe6c849f841e",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "Action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
