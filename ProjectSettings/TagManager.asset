@@ -58,6 +58,9 @@ TagManager:
   - name: BackGround
     uniqueID: 1948823903
     locked: 0
+  - name: UI
+    uniqueID: 1466560365
+    locked: 0
   - name: Item
     uniqueID: 76512007
     locked: 0
@@ -69,7 +72,4 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3361163465
-    locked: 0
-  - name: UI
-    uniqueID: 1466560365
     locked: 0

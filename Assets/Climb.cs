@@ -1,4 +1,4 @@
-using System.Collections;
+susing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,7 +22,23 @@ public class PlayerClimb : MonoBehaviour
         //rb.AddForce(Vector2.up, ForceMode2D.Impulse);
     }
 
-   
+    void Climb()
+    {
+        if (canClimb)
+        {
+            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+            {
+                vertical = Input.GetAxis("Vertical");
+                rb.gravityScale = 0;
+                rb.velocity = new Vector2(rb.velocity.x, vertical * climbSpeed);
+                //Instantiate()
+            }
+        }
+        else
+        {
+            rb.gravityScale = defaultGravityScale;
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
