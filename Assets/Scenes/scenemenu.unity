@@ -1226,7 +1226,7 @@ PrefabInstance:
     - target: {fileID: 6711732936036382306, guid: 0ab377f66e4e36b4aa637af46b0671cc, type: 3}
       propertyPath: NetworkConfig.PlayerPrefab
       value: 
-      objectReference: {fileID: 5786817571499397842, guid: 7588a21bb712b384ab50f42077c1237c, type: 3}
+      objectReference: {fileID: 5830257907557186151, guid: 8ca0885be54469747a5eb574671e9540, type: 3}
     - target: {fileID: 6711732936036382306, guid: 0ab377f66e4e36b4aa637af46b0671cc, type: 3}
       propertyPath: NetworkConfig.ConnectionApproval
       value: 0
@@ -3189,6 +3189,14 @@ PrefabInstance:
     - target: {fileID: -2253911629886400664, guid: 19c88697020040f42bfc282fe64a9822, type: 3}
       propertyPath: m_Name
       value: idle (White)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 19c88697020040f42bfc282fe64a9822, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 19c88697020040f42bfc282fe64a9822, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -933803831
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 19c88697020040f42bfc282fe64a9822, type: 3}
       propertyPath: m_LocalScale.x
