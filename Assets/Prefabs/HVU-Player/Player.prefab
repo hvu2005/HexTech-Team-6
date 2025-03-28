@@ -171,7 +171,7 @@ MonoBehaviour:
   Rb: {fileID: 3785122087294361917}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
   groundOffset: {x: -0.17, y: -0.03}
   distance: 0.35
   moveSpeed: 5

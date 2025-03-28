@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GroundTrap : MonoBehaviour
 {
@@ -6,9 +7,11 @@ public class GroundTrap : MonoBehaviour
     private bool isPlayerOn = false; // Kiểm tra người chơi có đang đứng trên block không
     private float timer = 0f;  // Bộ đếm thời gian
     public float delayBeforeFall = 3f;  // Thời gian trước khi block sập
+    private Rigidbody2D _rb;
 
     private void Start()
     {
+        _rb = GetComponent<Rigidbody2D>();
         if (trap != null)
         {
             trap.SetActive(false); // Ẩn trap ban đầu
@@ -48,7 +51,8 @@ public class GroundTrap : MonoBehaviour
 
     private void TriggerTrap()
     {
-        gameObject.SetActive(false); // Ẩn GroundTrap
+        _rb.bodyType = RigidbodyType2D.Dynamic;
+        GetComponent<TilemapCollider2D>().enabled = false;
         if (trap != null)
         {
             trap.SetActive(true); // Hiện Trap
