@@ -9,10 +9,10 @@ public class PlayerGimmick : MonoBehaviour
 
    
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float fireRate;
-    [SerializeField] private ObjectPool shooter;
+    //[SerializeField] private float fireRate;
+    //[SerializeField] private ObjectPool shooter;
 
-    private float _countFireRateTime;
+    //private float _countFireRateTime;
     private PlayerController _controller;
 
 
@@ -28,19 +28,19 @@ public class PlayerGimmick : MonoBehaviour
     {
         Rb.velocity = new Vector2(_controller.xMove * moveSpeed, _controller.yMove * moveSpeed);
 
-        if(_controller.isActing) Shoot();
+       // if(_controller.isActing) Shoot();
     }
 
-    private void Shoot()
-    {
-        _countFireRateTime += Time.deltaTime;
-        if(_countFireRateTime > fireRate)
-        {
-            _countFireRateTime = 0;
-            GameObject bullet = shooter.GetObject();
-        }
+    //private void Shoot()
+    //{
+    //    _countFireRateTime += Time.deltaTime;
+    //    if(_countFireRateTime > fireRate)
+    //    {
+    //        _countFireRateTime = 0;
+    //        GameObject bullet = shooter.GetObject();
+    //    }
         
-    }
+    //}
 
     private void onDying()
     {
