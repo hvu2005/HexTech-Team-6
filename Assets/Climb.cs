@@ -29,7 +29,7 @@ public class PlayerClimb : MonoBehaviour
     {
         if (canClimb)
         {
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             {
                 vertical = Input.GetAxis("Vertical");
                 rb.gravityScale = 0;
