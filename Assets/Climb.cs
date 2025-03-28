@@ -22,31 +22,6 @@ public class PlayerClimb : MonoBehaviour
         //rb.AddForce(Vector2.up, ForceMode2D.Impulse);
     }
 
-    
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other != null && other.CompareTag("Player"))
-        {
-            Player player = other.gameObject.GetComponent<Player>();
-            PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
-            player.Rb.gravityScale = 0f;
-
-            if (playerController.yMove > 0f)
-            {
-                player.Rb.velocity = new Vector2(player.Rb.velocity.x, climbSpeed);
-            }
-            else if(playerController.yMove < 0f)
-            {
-                player.Rb.velocity = new Vector2(player.Rb.velocity.x, -climbSpeed);
-            }
-            else
-            {
-                player.Rb.velocity = new Vector2(player.Rb.velocity.x, 0f);
-            }
-            
-        }
-    }
-
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other != null && other.CompareTag("Player"))
