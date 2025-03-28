@@ -879,6 +879,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91887b77671ac24984fe5f73024230f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!115 &353156226
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: NetworkObject
+  m_Namespace: Unity.Netcode
+  m_AssemblyName: Unity.Netcode.Runtime
 --- !u!1 &499811700
 GameObject:
   m_ObjectHideFlags: 0
@@ -2903,6 +2918,7 @@ GameObject:
   - component: {fileID: 1097967346}
   - component: {fileID: 1097967347}
   - component: {fileID: 1097967348}
+  - component: {fileID: 1097967349}
   m_Layer: 0
   m_Name: ChangeSceneManager
   m_TagString: Untagged
@@ -2937,15 +2953,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3162901407
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!114 &1097967348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2958,6 +2965,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c841cfff152f9774ca1068f79134f4df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1097967349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097967345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 353156226}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 576467402
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1224732335
 GameObject:
   m_ObjectHideFlags: 0
