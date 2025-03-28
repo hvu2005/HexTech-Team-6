@@ -9,7 +9,7 @@ public class ExitButtonObject : MonoBehaviour
     public float scaleSpeed = 5f;
 
     private Renderer objectRenderer;
-    private Color originalColor;
+    private Color originalColor; 
     private Vector3 originalScale;
 
     void Start()
