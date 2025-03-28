@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -933803831
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -8825211843705999057, guid: 532e4dc5783d8b84ea42be92126a63e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -107,7 +107,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.5
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: fd54f4d0b7494074db88dde2f00a5bdb, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -115,9 +115,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &-7435047818505145508
 MonoBehaviour:
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2235924520
+  GlobalObjectIdHash: 3292719215
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f1303a9f85e34145a99fc11ce0e13ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
-  jumpForce: 6.5
+  moveSpeed: 5
+  jumpForce: 10
   groundLayer:
     serializedVersion: 2
     m_Bits: 72

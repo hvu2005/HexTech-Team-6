@@ -11,7 +11,7 @@ public class PlayerControl : NetworkBehaviour
     [SerializeField] private Transform groundCheck;
 
     private Animator animator;
-    private Rigidbody2D rb;
+    public Rigidbody2D Rb;
     private Vector3 lastPosition;
     private float lastScaleX;
     public bool isGrounded = false;
@@ -25,14 +25,14 @@ public class PlayerControl : NetworkBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
+        Rb = GetComponent<Rigidbody2D>();
     }
 
     public override void OnNetworkSpawn()
     {
         if (!IsOwner) return;
 
-        rb.isKinematic = false;
+        Rb.isKinematic = false;
         lastPosition = transform.position;
         lastScaleX = transform.localScale.x;
     }
@@ -48,7 +48,7 @@ public class PlayerControl : NetworkBehaviour
             // 🟢 Chỉ gửi dữ liệu khi có thay đổi lớn
             if (Vector3.Distance(lastPosition, transform.position) > 0.05f || lastScaleX != transform.localScale.x)
             {
-                SendStateToServerRpc(transform.position, transform.localScale.x, Mathf.Abs(rb.velocity.x) > 0.1f, !isGrounded);
+                SendStateToServerRpc(transform.position, transform.localScale.x, Mathf.Abs(Rb.velocity.x) > 0.1f, !isGrounded);
                 lastPosition = transform.position;
                 lastScaleX = transform.localScale.x;
             }
@@ -66,7 +66,7 @@ public class PlayerControl : NetworkBehaviour
     private void HandleMovement()
     {
         float moveInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        Rb.velocity = new Vector2(moveInput * moveSpeed, Rb.velocity.y);
 
         if (moveInput > 0) transform.localScale = new Vector3(1, 1, 1);
         else if (moveInput < 0) transform.localScale = new Vector3(-1, 1, 1);
@@ -79,7 +79,7 @@ public class PlayerControl : NetworkBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            Rb.velocity = new Vector2(Rb.velocity.x, jumpForce);
             isGrounded = false; // Ngăn double jump ngay lập tức
         }
     }
@@ -87,7 +87,7 @@ public class PlayerControl : NetworkBehaviour
 
     private void UpdateAnimation()
     {
-        animator.SetBool("isRunning", Mathf.Abs(rb.velocity.x) > 0.1f);
+        animator.SetBool("isRunning", Mathf.Abs(Rb.velocity.x) > 0.1f);
         animator.SetBool("isJumping", !isGrounded);
     }
 
