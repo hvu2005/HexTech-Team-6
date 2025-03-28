@@ -24,7 +24,7 @@ public class PlayerClimb : MonoBehaviour
 
     void Climb()
     {
-        if (canClimb)
+        /*if (canClimb)
         {
             if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             {
@@ -37,7 +37,7 @@ public class PlayerClimb : MonoBehaviour
         else
         {
             rb.gravityScale = defaultGravityScale;
-        }
+        }*/
     }
 
     private void OnTriggerStay2D(Collider2D other)
