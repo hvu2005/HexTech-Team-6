@@ -40,6 +40,7 @@ public class Player : NetworkBehaviour
 
         Flip();
         checkIsGrounded();
+        Debug.Log(isGrounded);
 
         Rb.velocity = new Vector2(_controller.xMove * moveSpeed, Rb.velocity.y);
 
