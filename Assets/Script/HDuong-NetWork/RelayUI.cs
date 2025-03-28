@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿ using UnityEngine;
 using UnityEngine.UI;
 using System.Threading.Tasks;
 
@@ -6,7 +6,7 @@ public class RelayUI : MonoBehaviour
 {
     public RelayManager relayManager; // Tham chiếu đến RelayManager
     public InputField joinCodeInput; // InputField để nhập mã
-    public Button hostButton;
+    public Button hostButton; 
     public Button joinButton;
     private IDRoomInstance roomInstance;
 

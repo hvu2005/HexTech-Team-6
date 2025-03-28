@@ -4,7 +4,7 @@ using System.Collections;
 public class ExitButtonObject : MonoBehaviour
 {
     public Color clickColor = Color.gray;
-    public float delayBeforeExit = 0.001f;
+    public float delayBeforeExit = 0.2f;
     public float scaleFactor = 1.07f;
     public float scaleSpeed = 5f;
 
@@ -16,6 +16,8 @@ public class ExitButtonObject : MonoBehaviour
     {
         objectRenderer = GetComponent<Renderer>();
         originalColor = objectRenderer.material.color;
+
+        // Đảm bảo scale gốc không bị thay đổi do lỗi khi build
         originalScale = transform.localScale;
     }
 
@@ -49,9 +51,9 @@ public class ExitButtonObject : MonoBehaviour
 
     IEnumerator ScaleObject(Vector3 targetScale)
     {
-        while (Vector3.Distance(transform.localScale, targetScale) > 0.01f)
+        while (Vector3.Distance(transform.localScale, targetScale) > 0.001f)
         {
-            transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * scaleSpeed);
+            transform.localScale = Vector3.MoveTowards(transform.localScale, targetScale, Time.deltaTime * scaleSpeed);
             yield return null;
         }
         transform.localScale = targetScale;

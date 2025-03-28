@@ -910,7 +910,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 646472195
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ec765d825e8f69d4d89c955c205f52d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10793,7 +10793,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 646472195
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fb0d4bedb9a5dfd44a60d640f8f886c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11076,7 +11076,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1465207345
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 81f4310b05dde2a429310d013e0f394d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12469,7 +12469,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1465207345
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5c1b8219bd459dd448d845969e28db6b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12803,7 +12803,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 646472195
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fb0d4bedb9a5dfd44a60d640f8f886c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -14387,7 +14387,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 646472195
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ec765d825e8f69d4d89c955c205f52d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -15401,7 +15401,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 646472195
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 53dafa89e16c92d4a9f8e24a99989359, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -17506,7 +17506,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1465207345
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d72cd6ca46968614ca2692ebd3ae04e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -17935,7 +17935,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 646472195
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 19ed427c7a261bb4596d23aea46057b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -18306,7 +18306,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 646472195
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ec765d825e8f69d4d89c955c205f52d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -18617,6 +18617,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2792532220
       objectReference: {fileID: 0}
+    - target: {fileID: 3737083997557470196, guid: 11df351d22953654aa96b56e87d2a9c9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2630687890
+      objectReference: {fileID: 0}
     - target: {fileID: 8115670520116904081, guid: 11df351d22953654aa96b56e87d2a9c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.2059023
@@ -18670,6 +18674,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2130838218825850, guid: 60ea5b21cea60e043be54d81140f25f0, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1356891957
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130838218825850, guid: 60ea5b21cea60e043be54d81140f25f0, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3445332238
+      objectReference: {fileID: 0}
     - target: {fileID: 5565242172274743625, guid: 60ea5b21cea60e043be54d81140f25f0, type: 3}
       propertyPath: m_Name
       value: RelayManager

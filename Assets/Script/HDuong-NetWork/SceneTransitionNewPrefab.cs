@@ -10,7 +10,7 @@ public class SceneTransitionManager : NetworkBehaviour
     public GameObject newPlayerPrefab; // Gán Prefab mới trong Inspector
 
     private void Awake()
-    {
+    { 
         if (Instance == null) Instance = this;
     }
 
