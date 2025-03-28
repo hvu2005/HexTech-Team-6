@@ -18,7 +18,7 @@ public class Level4 : LevelBase
     [SerializeField] private ButtonScript gateButton;
     [SerializeField] private GameObject gate;
 
-    [SerializeField] private ButtonScript bossButton;
+    [SerializeField] private ButtonScript keyButton;
 
 
 
@@ -29,7 +29,7 @@ public class Level4 : LevelBase
     {
         StartCoroutine(WaitForCloseFakeGround());
         StartCoroutine(WaitForPressButton());
-        StartCoroutine(WaitForEndState());
+        StartCoroutine(WaitForGetKey());
     }
 
     // Update is called once per frame
@@ -67,9 +67,9 @@ public class Level4 : LevelBase
         gate.transform.DOLocalMoveY(1, 1).SetEase(Ease.OutQuad);
     }
 
-   private IEnumerator WaitForEndState()
+   private IEnumerator WaitForGetKey()
     {
-        yield return new WaitUntil(() => bossButton.isPressed);
+        yield return new WaitUntil(() => keyButton.isPressed);
 
         _isBossPharse = true;
         boss.SetActive(true);
