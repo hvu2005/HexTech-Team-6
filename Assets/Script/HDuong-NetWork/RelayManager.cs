@@ -16,7 +16,7 @@ public class RelayManager : NetworkBehaviour
     async void Start()
     {
         changeScene = FindAnyObjectByType<ChangeSceneNetcode>();
-        if (changeScene == null) 
+        if (changeScene == null)
         {
             Debug.LogError("ChangeSceneNetcode chưa được gán trong Scene!");
         }
