@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
@@ -36,46 +36,47 @@ public class Player : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void FixedUpdate()
-    {
         if (!IsOwner) return;
-
 
         Flip();
         checkIsGrounded();
 
-        Rb.velocity = new Vector2(_controller.move * moveSpeed, Rb.velocity.y);
+        Rb.velocity = new Vector2(_controller.xMove * moveSpeed, Rb.velocity.y);
 
-        if(isGrounded && _controller.isJumping)
+        if (isGrounded && _controller.isJumping)
         {
             Rb.velocity = new Vector2(Rb.velocity.x, jumpForce);
         }
     }
 
+    private void FixedUpdate()
+    {
+        
+    }
+
+
     private void checkIsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + groundOffset, Vector2.left, distance, whatIsGround );
-        Debug.DrawRay((Vector2)transform.position + groundOffset, Vector2.left * distance, Color.red);
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + groundOffset, Vector2.right, distance, whatIsGround);
+        Debug.DrawRay((Vector2)transform.position + groundOffset, Vector2.right * distance, Color.red);
         isGrounded = hit.collider != null;
     }
-    
+
+
     private void Flip()
     {
-        if(CanMove)
+        if (!CanMove) return;
+
+        if (_controller.xMove > 0 && !isFacingRight)
         {
-            if(_controller.move > 0 && !isFacingRight)
-            {
-                isFacingRight = !isFacingRight;
-                transform.rotation = Quaternion.identity;
-            }
-            else if(_controller.move < 0 && isFacingRight)
-            {
-                isFacingRight = !isFacingRight;
-                transform.rotation = Quaternion.Euler(0, -180, 0);
-            }
+            isFacingRight = true;
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (_controller.xMove < 0 && isFacingRight)
+        {
+            isFacingRight = false;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
     }
+
 }

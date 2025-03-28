@@ -7,10 +7,12 @@ public class PlayerAnimation : MonoBehaviour
 {
     private PlayerController _controller;
     private Animator _animator;
+    private Player _player;
 
     // Start is called before the first frame update
     void Start()
     {
+        _player = GetComponent<Player>(); 
         _controller = GetComponent<PlayerController>();
         _animator = GetComponent<Animator>();
     }
@@ -19,15 +21,17 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
         MovingAnimating();
+        JumpingAnimating();
     }
 
     private void MovingAnimating()
     {
-        _animator.SetBool("isMoving", _controller.move != 0);
+        _animator.SetBool("isMoving", _controller.xMove != 0);
+        
     }
 
     private void JumpingAnimating()
     {
-        _animator.SetBool("isJumping", _controller.isJumping);
+        _animator.SetBool("isJumping", !_player.isGrounded);
     }
 }
