@@ -2704,7 +2704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8677f245de59c74586af96fb3db1510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  targetObject: {fileID: 121780369}
   clickColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   scaleFactor: 1.07
   scaleSpeed: 5
@@ -2937,15 +2937,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3162901407
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!114 &1097967348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3200,7 +3191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 19c88697020040f42bfc282fe64a9822, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.7263792
+      value: -5.19
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 19c88697020040f42bfc282fe64a9822, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3851,7 +3842,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 1d768ddb65673924fb013d60b40bad75, type: 2}
-  m_audioClip: {fileID: 8300000, guid: bea799f37ae97044a97a3160f54f1f41, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 06055093794f39e46a41c2508f69ac4d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
