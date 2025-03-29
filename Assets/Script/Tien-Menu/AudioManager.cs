@@ -16,6 +16,8 @@ public class MusicManager : MonoBehaviour
             {
                 audioSource = gameObject.AddComponent<AudioSource>();
             }
+
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -25,8 +27,6 @@ public class MusicManager : MonoBehaviour
 
     public void ToggleMusic(bool isActive)
     {
-        if (audioSource == null) return;
-
         if (isActive)
         {
             if (!audioSource.isPlaying)
